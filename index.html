@@ -1,198 +1,202 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <link rel="icon" type="image/png" href="../src/icon.svg">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Happy Birthday</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<!DOCTYPE html>   ＜!DOCTYPE html >   ＜!DOCTYPE html >
+<html   超文本标记语言    < html   超文本标记语言 lang   朗 = "应用" >lang="zh-CN">
+<head   头>
+    <link   链接 rel="icon"   “图标” type   类型="image/png"   “图像/ png” href="../src/icon.svg">
+    <meta   元 charset   字符集="UTF-8"   “utf - 8”>
+    <meta   元 name   名字="viewport"   “视口” content   内容="width=device-width, initial-scale=1.0, user-scalable=no"“width   “宽=device-width,   设备宽度, initial-scale   初始=1.0, user-scalable=no”   不”>
+    <标题> < /标题>生日快乐<title   标题>Happy Birthday</title   标题>
+       ＜!——顺风CSS——><!-- Tailwind CSS -->   ＜!——顺风CSS——>
+    < script   脚本 src = " https://cdn.tailwindcss.com " > < /脚本><script src="https://cdn.tailwindcss.com   和"></script   脚本>
     <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+    < script    脚本src = " https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js " > < /脚本><script src="https://cdnjs.cloudflare.com   和/ajax/libs   填词/three   三个.js/r128/three   三个.min   最小值.js"></script   脚本>
+       ＜   ＜!字体——>!字体——><!-- Google    谷歌Fonts   字体 -->
+    <link    链接href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Serif+SC:wght@500;700&display=swap""https://fonts.googleapis.com/css2?family=Dancing Script:wght@700&family= no - Serif SC:wght@500；700 rel="   “样式表”stylesheet   样式表">
     
-    <!-- MediaPipe Hands -->
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6.1629159505/control_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="anonymous"></script>
+       ＜   ＜!——mediappe Hands——   手——>!——mediappe Hands——   手——><!-- MediaPipe Hands   手 -->
+    <script    脚本src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js""https://cdn.jsdelivr.net
+pm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js" crossorigin="   “匿名”anonymous"></script   脚本>
+    <script    脚本src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6.1629159505/control_utils.js""https://cdn.jsdelivr.net
+pm/@mediapipe/control_utils@0.6.1629159505/control_utils.js" crossorigin="   “匿名”anonymous"></script   脚本>
+    <script    脚本src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.js""https://cdn.jsdelivr.net
+pm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.js" crossorigin="   “匿名”anonymous"></script   脚本>
+    <script    脚本src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js""https://cdn.jsdelivr.net
+pm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="   “匿名”anonymous"></script   脚本>
 
-    <style>
-        :root { --bg-gradient: radial-gradient(circle at center, #1a0b1a 0%, #000000 100%); }
-        body { 
-            margin: 0; overflow: hidden; 
-            background-color: #000000; background-image: var(--bg-gradient); 
-            font-family: 'Noto Serif SC', serif; color: white; 
-            user-select: none; -webkit-tap-highlight-color: transparent;
-            touch-action: none;
+       < >风格<style   风格>
+        :：root   :根{——bg-gradient：径向梯度（圆心，#1a0b1a 0%, #000000 100%）；}root    根{ --bg   ——bg-gradient   梯度-gradient   梯度: radial   径向渐变-gradient   梯度(circle    圆at    在center, #1a0b1a 0%, #000000 100%); }
+           身体{body    身体{ 
+            保证金:0;溢出:隐藏;margin   保证金: 0; overflow   溢出: hidden   隐藏的; 
+            background   背景 - color   颜色: # 000000;背景图片:var(——bg-gradient   梯度);background   背景颜色-color   颜色: #000000   背景图像; background   背景-image   图像: var(--bg   ——bg-gradient   梯度-gradient   梯度); 
+            font   字体类型-family   家庭: ‘无衬线’，Serif；颜色:白色;font   字体类型-family   家庭: 'Noto Serif SC'   “无衬线SC”, serif   衬线; color   颜色: white   白色; 
+            用户选择:没有;-webkit-tap   利用-highlight   突出-color   颜色:透明;user   用户选择-select   选择: none   没有一个; -webkit-tap   利用-highlight   突出-color   颜色: transparent   透明的;
+               touch-action   行动:没有;touch-action   行动: none   没有一个;
         }
-        #canvas-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; cursor: grab; }
-        #canvas-container:active { cursor: grabbing; }
+        ##canvas   #帆布-container   画布容器 {position   位置: absolute；上图:0;左:0;宽度:100大众;身高:100 vh;z - index   指数: 1;光标:抓住;}canvas   画布容器-container   容器 { position   位置: absolute   绝对; top   前: 0; left   左: 0; width   宽度: 100vw   小镇; height   高度: 100vh; z-index   指数: 1; cursor   光标: grab   抓住; }
+        ##canvas   #帆布-container   画布容器:active   活跃的{游标：抓取；}canvas   画布容器-container   容器:active    活跃的{ cursor   光标: grabbing   抓住; }
         
         /* 翻转卡片 */
-        .flip-card { background-color: transparent; perspective: 1000px; }
-        .flip-card-inner {
-            position: relative; width: 100%; height: 100%; text-align: center;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
+        .．Flip   ．活页片-card   卡{背景颜色：透明；角度:1000 px;}flip   活页片-card   卡 { background   背景颜色-color   颜色: transparent   透明的; perspective   角度来看: 1000px; }
+        .   ．flip   .flip   翻转-card   卡-inner   内心的-card   卡-inner   内心的 {flip-card   卡-inner   内心的 {
+            位置:相对;宽度:100%;高度:100%;text-align   对齐:中心;position   位置: relative   相对; width   宽度: 100%; height   高度: 100%; text-align   对齐: center   中心;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);过渡：变换0.8s立方bezier(0.175, 0.885, 0.32, 1.275)；
+            transform-style: preserve-3d;传输格式:preserve   保存-3d;
         }
-        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-        .flip-card-front, .flip-card-back {
-            position: absolute; width: 100%; height: 100%;
-            -webkit-backface-visibility: hidden; backface-visibility: hidden;
-            border-radius: 1.2rem; overflow: hidden;
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }.flip   翻转-card。翻转。{变换：旋转（180度）；}
+        .flip-card-front, .flip-card-back {．flip   .flip   翻转-card   卡-front。flip   前面。翻转-card   卡-back   回来 {
+            position: absolute; width: 100%; height: 100%;位置:绝对的;宽度:100%;高度:100%;
+            -webkit-backface-visibility: hidden; backface-visibility: hidden;-webkit-backface   沿墙-visibility   可见性:隐藏;backface   沿墙-visibility   可见性:隐藏;
+            border-radius: 1.2rem; overflow: hidden;border   边境 - radius   半径: 1.2快速眼动;溢出:隐藏;
         }
-        .flip-card-back { transform: rotateY(180deg); }
+        .flip-card-back { transform: rotateY(180deg); }．{transform   变换: rotateY（180度）；}
 
         /* UI 层 */
-        #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; box-sizing: border-box; transition: opacity 0.5s; }
-        .interactive-element { pointer-events: auto; cursor: pointer; }
-        .input_video { display: none; }
-        .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1.5rem; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); }
+        #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; box-sizing: border-box; transition: opacity 0.5s; }#ui   # iu-layer   层 {position：绝对；上衣:0;本轮0;width   宽度: 100%;height   高度: 100%;z-index   指数: 10;pointer   指针-events   事件:假设的;屏幕:扩开;flex-direction   方向: column   列;justify   证明-content   内容: space-between;padding   填充: 1.5rem   快速眼动;box-sizing: border   边境-box;过渡：不透明度0.5s；……
+        .interactive-element { pointer-events: auto; cursor: pointer; }.interactive   互动-element   元素 {pointer   指针-events   事件: auto；光标:指针;}
+        .input_video { display: none; }．Input_video{显示：无；}
+        .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1.5rem; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); }．Glass   ．玻璃-panel   面板 {background   背景: rgba(255,255,255,0.05)；backdrop   ,背景-filter   过滤器:模糊(12 px);边框：1px实心rgba(255,255,255,0.1)；border   边界; - radius   半径: 1.5快速眼动;Box   盒子-shadow   影子: 0 8px 32px 0 rgba(0,0,0,0.5)；}
         
         /* 启动页样式 */
         #start-overlay { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.6); 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 位置:绝对的;上图:0;左:0;宽度:100%;高度:100%;
+            background: rgba(0,0,0,0.6); 背景:rgba (0, 0, 0, 0.6);
             z-index: 9999; 
-            display: flex; justify-content: center; align-items: center; 
-            pointer-events: auto;
-            transition: opacity 0.8s ease, visibility 0.8s;
+            display: flex; justify-content: center; align-items: center; 显示:flex;justify   证明-content   内容:中心;对齐项目:中心;
+            pointer-events: auto;   pointer   指针-events   事件:汽车;
+            transition: opacity 0.8s ease, visibility 0.8s;过渡：不透明度0.8s，可见度0.8s；   年代;
         }
-        #start-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        #start-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }# start   开始-overlay。隐藏{透明度：0；可见性:隐藏;pointer   指针-events   事件:没有;}
         
-        .start-card {
-            background: rgba(20, 10, 20, 0.75);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 105, 180, 0.3);
-            box-shadow: 0 0 50px rgba(255, 105, 180, 0.2);
+        .start-card {   ．start   .start-card   卡 {
+            background: rgba(20, 10, 20, 0.75);背景：rgba(20,10,20,0.75)；
+            backdrop-filter: blur(16px);backdrop   背景-filter   过滤器:模糊(16 px);
+            border: 1px solid rgba(255, 105, 180, 0.3);边框：1px实心rgba(255, 105, 180, 0.3)；
+            box-shadow: 0 0 50px rgba(255, 105, 180, 0.2);Box   盒子-shadow   影子: 0 0 50px rgba(255, 105, 180, 0.2)；
         }
 
-        #blow-meter-container { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); width: 280px; height: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; opacity: 0; transition: opacity 0.5s; }
-        #blow-meter-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #ff9a9e 0%, #ff69b4 100%); border-radius: 10px; transition: width 0.1s linear; box-shadow: 0 0 15px #ff69b4; }
-        #blow-hint { position: absolute; bottom: 18%; width: 100%; text-align: center; font-size: 14px; color: rgba(255,255,255,0.8); text-shadow: 0 2px 4px rgba(0,0,0,0.8); opacity: 0; transition: opacity 0.5s; }
+        #blow-meter-container { position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); width: 280px; height: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; opacity: 0; transition: opacity 0.5s; }#blow   #吹-meter   计-container   容器{位置：绝对；底:15%;左:50%;transform   变换: translateX (-50%);width   宽度: 280px;height   高度: 12px;背景:rgba (255,255,255,0.1);border   边境-radius   半径: 10px;overflow   溢出:隐藏的;opacity   不透明度: 0;过渡：不透明度0.5s；……
+        #blow-meter-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #ff9a9e 0%, #ff69b4 100%); border-radius: 10px; transition: width 0.1s linear; box-shadow: 0 0 15px #ff69b4; }#吹米杆{高度：100%；width   宽度;:也;背景：线性梯度（90deg, #ff9a9e 0%, #ff69b4 100%）；border-radius   半径: 10px;过渡：宽度0.1s线性；Box -shadow   影子: 0 0 15px #ff69b4；……
+        #blow-hint { position: absolute; bottom: 18%; width: 100%; text-align: center; font-size: 14px; color: rgba(255,255,255,0.8); text-shadow: 0 2px 4px rgba(0,0,0,0.8); opacity: 0; transition: opacity 0.5s; }#blow   #吹-hint{位置：绝对；底:18%;width   宽度: 100%;text   文本-align   对齐:中心;font   字体-size   大小: 14px;活动中一:rgba (255,255,255,0.8);文本阴影：0 2px 4px rgba(0,0,0,0.8)；opacity: 0;过渡：不透明度0.5s；……
 
-        #surprise-layer { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 80; pointer-events: none; transition: background 0.5s ease; }
-        #surprise-layer.hidden { display: none !important; }
-        #surprise-layer.active { pointer-events: auto; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); }
+        #surprise-layer { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 80; pointer-events: none; transition: background 0.5s ease; }#surprise   #惊喜-layer   层 {position   位置: absolute；插图:0;显示:flex;flex-direction   方向:列;justify   证明-content   内容:中心;对齐项目:中心;z - index   指数: 80;pointer   指针-events   事件:没有;过渡：背景舒缓0.5s；   年代;}
+        #surprise-layer.hidden { display: none !important; }# surprise   惊喜-layer。隐藏{显示：none !important；   重要;}
+        #surprise-layer.active { pointer-events: auto; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); }# surprise   惊喜-layer。活动{指针事件：自动；背景:rgba (0, 0, 0, 0.4);backdrop   背景-filter   过滤器:模糊(4 px);}
 
-        .font-handwriting { font-family: 'Dancing Script', cursive; }
-        .pop-in { animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-        .animate-float { animation: float 3s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .safe-click-area { z-index: 90; position: relative; touch-action: manipulation; }
-        .neon-text { text-shadow: 0 0 10px rgba(255,105,180,0.7), 0 0 20px rgba(255,105,180,0.5); }
+        .font-handwriting { font-family: 'Dancing Script', cursive; }．font   font-handwriting   笔迹 {font   字体-family   家庭: " Dancing Script "   “舞蹈剧本”，草体；}
+        .pop-in { animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }．popIn {animation   动画: popIn 0.6s    年代cubic   立方-bezier   贝塞尔曲线(0.34, 1.56, 0.64, 1) forward；   向前;}
+        .animate-float { animation: float 3s ease-in-out infinite; }．animation   .animation -float   浮动{动画：浮动3s ease   缓解-in   在-out无限；}
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }@keyframes   关键帧 float    浮动{0%, 100% {transform: translateY(0)；} 50% {transform: translateY(-10px)；}}
+        .safe-click-area { z-index: 90; position: relative; touch-action: manipulation; }．安全点击区域{z-index: 90；位置:相对;touch-action:操纵;}
+        .neon-text { text-shadow: 0 0 10px rgba(255,105,180,0.7), 0 0 20px rgba(255,105,180,0.5); }．Neon-text {text-shadow: 0 0 10px rgba(255,105,180,0.7), 0 0 20px rgba(255,105,180,0.5)；}
 
         #floating-gift-btn {
-            position: absolute; bottom: 30px; right: 30px; z-index: 200; width: 60px; height: 60px; border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 105, 180, 0.5);
-            display: flex; justify-content: center; align-items: center; font-size: 30px; cursor: pointer;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.4); animation: float-btn 3s ease-in-out infinite;
-            transition: transform 0.3s, background 0.3s; pointer-events: auto;
+            position: absolute; bottom: 30px; right: 30px; z-index: 200; width: 60px; height: 60px; border-radius: 50%;位置:绝对的;底部:30 px;右:30 px;z - index: 200;宽度:60 px;高度:60 px;这个特性:50%;
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 105, 180, 0.5);背景：rgba(255, 255, 255, 0.1)；backdrop-filter:模糊(10 px);边框：1px实心rgba(255, 105, 180, 0.5)；
+            display: flex; justify-content: center; align-items: center; font-size: 30px; cursor: pointer;显示:flex;justify-content:中心;对齐项目:中心;字体大小:30 px;光标:指针;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.4); animation: float-btn 3s ease-in-out infinite;Box-shadow: 0 0 20px rgba(255, 105, 180, 0.4)；动画：float-btn 3s ease-in-out infinite；
+            transition: transform 0.3s, background 0.3s; pointer-events: auto;过渡：变换0.3s，背景0.3s；pointer-events:汽车;
         }
-        #floating-gift-btn:hover { transform: scale(1.1) rotate(10deg); background: rgba(255, 105, 180, 0.3); }
-        #floating-gift-btn.hidden { display: none !important; }
-        @keyframes float-btn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        #floating-gift-btn:hover { transform: scale(1.1) rotate(10deg); background: rgba(255, 105, 180, 0.3); }#float -gift-btn:hover {transform: scale(1.1) rotate（10度）；背景：rgba(255, 105, 180, 0.3)；}
+        #floating-gift-btn.hidden { display: none !important; }# floating-gift-btn。隐藏{显示：none !important；}
+        @keyframes float-btn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }@keyframes   关键帧 float   浮动-btn {0%, 100% {transform   变换: translateY(0)；} 50% {transform   变换: translateY(-10px)；}}
 
-        #settings-panel {
-            position: absolute; top: 80px; right: 20px; width: 140px;
-            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px;
-            padding: 15px; z-index: 50; display: none; 
-            flex-direction: column; gap: 10px; pointer-events: auto;
+        #settings-panel {   #设置面板{
+            position: absolute; top: 80px; right: 20px; width: 140px;位置:绝对的;前:80像素;右:20 px;宽度:140 px;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px);背景：rgba(0,0,0,0.6)；backdrop   ,背景-filter   过滤器:模糊(8 px);
+            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px;Border   边境: 1px solid    固体rgba(255,255,255,0.2)；border   边界; - radius   半径: 12 px;
+            padding: 15px; z-index: 50; display: none; 填充:15 px;z - index   指数: 50;显示:没有;
+            flex-direction: column; gap: 10px; pointer-events: auto;flex-direction   方向:列;差距:10 px;pointer   指针-events   事件:汽车;
         }
-        .color-control { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #ddd; }
-        .color-control input { width: 30px; height: 20px; border: none; border-radius: 4px; cursor: pointer; background: transparent; }
+        .color-control { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #ddd; }．颜色控制{显示：flex；对齐项目:中心;justify   证明-content:之间的空间;字体大小:12 px;颜色:# ddd;}
+        .color-control input { width: 30px; height: 20px; border: none; border-radius: 4px; cursor: pointer; background: transparent; }．颜色控制输入{宽度：30px；高度:20 px;边界:没有;border - radius: 4 px;光标:指针;背景:透明;}
 
-        #top-banner {
-            position: absolute; top: 15%; left: 0; width: 100%;
-            text-align: center; pointer-events: none; z-index: 5;
-            animation: float-banner 4s ease-in-out infinite;
+        #top-banner {   #顶部横幅{
+            position: absolute; top: 15%; left: 0; width: 100%;位置:绝对的;上图:15%;左:0;宽度:100%;
+            text-align: center; pointer-events: none; z-index: 5;text-align:中心;pointer-events:没有;z - index: 5;
+            animation: float-banner 4s ease-in-out infinite;动画：float-banner 4s ease-in-out infinite；
         }
-        #top-banner.hidden { display: none !important; }
-        .banner-text {
-            font-family: 'Dancing Script', cursive;
-            background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb);
-            -webkit-background-clip: text; background-clip: text; color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255,192,203,0.8));
+        #top-banner.hidden { display: none !important; }#顶部的横幅。隐藏{显示：none !important；}
+        .banner-text {   ．banner-text {
+            font-family: 'Dancing Script', cursive;font-family: 'Dancing Script'，草体；
+            background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb);背景：线性渐变（向右，#ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb）；
+            -webkit-background-clip: text; background-clip: text; color: transparent;-webkit-background-clip:文本;background-clip:文本;颜色:透明;
+            filter: drop-shadow(0 0 10px rgba(255,192,203,0.8));滤镜：投影（0 0 10px rgba(255,192,203,0.8)）；
         }
-        @keyframes float-banner { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes float-banner { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }@keyframes float-banner {0%, 100% {transform: translateY(0)；} 50% {transform: translateY(-15px)；}}
 
         #protocol-warning {
-            position: fixed; top: 0; left: 0; width: 100%; background: #ff4444; color: white;
-            text-align: center; padding: 10px; z-index: 10000; font-size: 14px; display: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: fixed; top: 0; left: 0; width: 100%; background: #ff4444; color: white;位置:固定;上图:0;左:0;宽度:100%;背景:# ff4444;颜色:白色;
+            text-align: center; padding: 10px; z-index: 10000; font-size: 14px; display: none;text   文本-align   对齐:中心;填充:10 px;z - index   指数: 10000;字体大小:14 px;显示:没有;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);Box   盒子-shadow   影子: 0 2px 10px rgba(0,0,0,0.5)；
         }
         
         #cam-preview-container {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);过渡：所有0.3s立方bezier(0.4, 0,0.2, 1)；
         }
-        #cam-preview-container:hover {
-            transform: scale(1.05);
-            opacity: 1;
+        #cam-preview-container:hover {# cam   凸轮-preview   预览-container   容器:{徘徊
+            transform: scale(1.05);   变换:规模(1.05);
+            opacity: 1;   透明度:1;
         }
         
         @keyframes neon-pulse {
-            0%, 100% { text-shadow: 0 0 10px rgba(255,105,180,0.7), 0 0 20px rgba(255,105,180,0.5); }
-            50% { text-shadow: 0 0 20px rgba(255,105,180,0.9), 0 0 30px rgba(255,105,180,0.7), 0 0 40px rgba(255,105,180,0.5); }
-        }
-        .neon-pulse { animation: neon-pulse 2s infinite; }
+            0%, 100% { text-shadow: 0 0 10px rgba(255,105,180,0.7), 0 0 20px rgba(255,105,180,0.5); }0%, 100% {text   文本-shadow: 00 10px rgba(255,105,180,0.7), 00 20px rgba(255,105,180,0.5)；}
+            50% { text-shadow: 0 0 20px rgba(255,105,180,0.9), 0 0 30px rgba(255,105,180,0.7), 0 0 40px rgba(255,105,180,0.5); }50% {text   文本-shadow: 0 0 20px rgba(255,105,180,0.9), 0 0 30px rgba(255,105,180,0.7), 0 0 40px rgba(255,105,180,0.5)；}
+                                                                         }
+        .neon-pulse { animation: neon-pulse 2s infinite; }．霓虹脉冲{动画：霓虹脉冲2s无限；}
 
         /* 隐藏的日志容器 */
-        #debug-console { display: none; }
+        #debug-console { display: none; }#debug   #调试-console   控制台{显示：none；}
 
         /* 滚动文字区域样式 */
-        .scrollable-text {
+        .scrollable-text {   ．scrollable   .scrollable   可滚动-text——   文本,
             max-height: 240px; /* 限制高度 */
             overflow-y: auto;  /* 允许垂直滚动 */
             padding-right: 10px; /* 给滚动条留点空 */
-            scrollbar-width: thin; /* Firefox */
-            scrollbar-color: rgba(255,105,180,0.5) transparent; /* Firefox */
+            scrollbar-width: thin; /* Firefox */scrollbar   滚动条-width   宽度:薄;/* Firefox */
+            scrollbar-color: rgba(255,105,180,0.5) transparent; /* Firefox */滚动条颜色：rgba（255,105,180,0.5）透明；/* Firefox */
         }
         /* Chrome/Safari 滚动条样式 */
-        .scrollable-text::-webkit-scrollbar {
-            width: 4px;
+        .scrollable-text::-webkit-scrollbar {．scrollable   .scrollable   可滚动-text   文本:: -webkit-scrollbar——   滚动条,
+            width: 4px;   宽度:4 px;
         }
-        .scrollable-text::-webkit-scrollbar-track {
-            background: transparent;
+        .scrollable-text::-webkit-scrollbar-track {．滚动文本:-webkit-scrollbar   滚动条-track   跟踪 {
+            background: transparent;   背景:透明;
         }
-        .scrollable-text::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 105, 180, 0.5);
+        .scrollable-text::-webkit-scrollbar-thumb {．滚动文本:-webkit-scrollbar   滚动条-thumb   拇指 {
+            background-color: rgba(255, 105, 180, 0.5);Background   背景-color   颜色: rgba(255,105,180,0.5)；
             border-radius: 10px;
         }
-    </style>
-</head>
-<body>
+    </style>   > < /风格
+</head>   < / >负责人
+<body>   身体< >
     
-    <div id="debug-console"></div>
+    <div id="debug-console"></div>< div id = "调试操控台" > < / div >
 
     <div id="protocol-warning">
         ⚠️ 检测到您直接打开了HTML文件 (file://)。<br>摄像头和麦克风将被拦截。<br>
         <b>请在 VS Code 中安装 "Live Server" 插件并使用 "Open with Live Server" 运行。</b>
     </div>
 
-    <audio id="bgm" loop>
+    <audio id="bgm" loop>   <音频id="bgm"   “bgm”循环>
         <source src="./src/happy-birthday-155461.mp3" type="audio/mpeg">
-    </audio>
+    </audio>   < /音频>
 
     <video class="input_video" playsinline></video>
-    <div id="canvas-container"></div>
+    <div id="canvas-container"></div>< div id = "画布容器" > < / div >
     
     <button id="floating-gift-btn" class="hidden safe-click-area" title="查看祝福">🎁</button>
 
     <!-- 启动页 -->
     <div id="start-overlay">
-        <div class="text-center max-w-md p-8 glass-panel start-card mx-4 animate-float">
-            <h1 class="text-6xl mb-2 font-handwriting text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-400 drop-shadow-lg">Happy Birthday</h1>
-            <!-- <h2 class="text-4xl mb-6 font-bold text-white tracking-widest neon-text">粉姐</h2> -->
-            <div class="space-y-4 text-gray-200 text-lg mb-8 font-light">
+        <div class="text-center max-w-md p-8 glass-panel start-card mx-4 animate-float">< span    跨度style   风格 =" font - family：宋体，宋体，宋体
+            <h1 class="text-6xl mb-2 font-handwriting text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-400 drop-shadow-lg">Happy Birthday</h1>< span style =" font- family - family - family - family - family - family - family - family - family - family - family - family - family - family - family - family “生日快乐
+            <!-- <h2 class="text-4xl mb-6 font-bold text-white tracking-widest neon-text">粉姐</h2> -->＜!——
+            <div class="space-y-4 text-gray-200 text-lg mb-8 font-light">< span    跨度style   风格 =" font- family：宋体-宋体-宋体
                 <p>👋 <b>对着镜头 举起双手</b> 唤醒魔法</p>
                 <p>💨 <b>持续吹气</b> 许下心愿</p>
             </div>
-            <button id="start-btn" class="safe-click-area px-12 py-4 bg-gradient-to-r from-pink-600 to-purple-700 rounded-full font-bold text-xl hover:scale-105 active:scale-95 transition transform shadow-[0_0_20px_rgba(255,105,180,0.5)] text-white border border-white/20 cursor-pointer z-50">
+            <button id="start-btn" class="safe-click-area px-12 py-4 bg-gradient-to-r from-pink-600 to-purple-700 rounded-full font-bold text-xl hover:scale-105 active:scale-95 transition transform shadow-[0_0_20px_rgba(255,105,180,0.5)] text-white border border-white/20 cursor-pointer z-50">[0_0_20px_rgba(255,105,180,0.5)] [font   字体- family：宋体][font   字体- family：宋体]font   字体- family：宋体][font   字体- family：宋体]font   字体- family：宋体][font   字体- family：宋体]font   字体- family：宋体
                 进入魔法世界
-            </button>
+            </button>   > < /按钮
             <div id="loading-text" class="hidden mt-4 text-pink-300 text-sm">正在编织星光...</div>
         </div>
     </div>
@@ -201,51 +205,51 @@
     <div id="blow-meter-container"><div id="blow-meter-bar"></div></div>
 
     <div id="top-banner" class="hidden">
-        <h1 class="text-6xl md:text-8xl banner-text">Happy Birthday</h1>
-        <p class="text-pink-200/70 text-lg mt-2 tracking-widest uppercase">Best Wishes for You</p>
+        <h1 class="text-6xl md:text-8xl banner-text">Happy Birthday</h1>< span style =“ font - family：宋体” < span style =" font - family：宋体
+        <p class="text-pink-200/70 text-lg mt-2 tracking-widest uppercase">Best Wishes for You</p>< span style =" font - family - family - family - family " < span style =“ font - family - family - family - family - family ”
     </div>
 
     <!-- UI 层 -->
-    <div id="ui-layer" style="display: none;">
-        <div class="flex justify-between items-start w-full">
+    <div id="ui-layer" style="display: none;">< span    跨度style   风格=“ font   字体 - family：宋体；”>
+        <div class="flex justify-between items-start w-full">< span    跨度class   类=" font - family：宋体
             <div class="glass-panel px-4 py-2">
                 <div id="status-dot" class="inline-block w-2 h-2 rounded-full bg-red-500 mr-2 shadow-[0_0_8px_red]"></div>
-                <span id="status-text" class="text-xs md:text-sm text-gray-300 tracking-wider">SYSTEM READY</span>
+                <span id="status-text" class="text-xs md:text-sm text-gray-300 tracking-wider">SYSTEM READY</span>SYSTEM READY
             </div>
-            <div class="flex gap-2">
-                <button id="settings-toggle" class="interactive-element p-3 glass-panel hover:bg-white/20 transition rounded-full active:scale-90 text-sm">🎨</button>
-                <button id="music-btn" class="interactive-element p-3 glass-panel hover:bg-white/20 transition rounded-full active:scale-90">🎵</button>
+            <div class="flex gap-2">   < span    跨度class   类=" font - family：宋体
+                <button id="settings-toggle" class="interactive-element p-3 glass-panel hover:bg-white/20 transition rounded-full active:scale-90 text-sm">🎨</button>🎨
+                <button id="music-btn" class="interactive-element p-3 glass-panel hover:bg-white/20 transition rounded-full active:scale-90">🎵</button>🎵
             </div>
         </div>
         
-        <div id="settings-panel">
+        <div id="settings-panel">   < div id = "设置面板" >
             <div class="color-control"><span>底层颜色</span><input type="color" id="picker-bottom" value="#FF69B4"></div>
             <div class="color-control"><span>顶层颜色</span><input type="color" id="picker-top" value="#FFB6C1"></div>
             <div class="color-control"><span>奶油颜色</span><input type="color" id="picker-cream" value="#FFFFFF"></div>
         </div>
 
         <div id="center-instruction" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none w-full z-0">
-            <div class="flex items-center justify-center gap-4 mb-2">
-                <span id="hand-icon" class="text-6xl animate-bounce">👋</span>
-                <h2 id="instruction-text" class="text-6xl md:text-8xl font-bold text-white neon-pulse transition-all duration-700">举起双手</h2>
+            <div class="flex items-center justify-center gap-4 mb-2">< span    跨度style   风格 =" font - family：宋体
+                <span id="hand-icon" class="text-6xl animate-bounce">👋</span>👋
+                <h2 id="instruction-text" class="text-6xl md:text-8xl font-bold text-white neon-pulse transition-all duration-700">举起双手</h2> 
             </div>
             <p id="sub-instruction" class="mt-4 text-xl md:text-2xl text-pink-200/80 font-light tracking-[0.3em]">让魔法发生</p>
             <!-- 自动倒数提示文字 -->
-            <p id="auto-countdown-text" class="mt-4 text-sm text-pink-200/60 font-light tracking-wider animate-pulse hidden"></p>
+            <p id="auto-countdown-text" class="mt-4 text-sm text-pink-200/60 font-light tracking-wider animate-pulse hidden"></p>< span style =" font- family - family - family - family - family - family - family - family - family - family - family - family
         </div>
 
         <!-- 摄像头预览框 -->
         <div id="cam-preview-container" class="absolute bottom-6 left-6 z-50 opacity-90 hover:opacity-100">
-            <div class="glass-panel p-2 rounded-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
-                <div class="relative w-36 h-28 bg-black/40 rounded-lg overflow-hidden border border-white/5">
+            <div class="glass-panel p-2 rounded-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">< span    跨度class   类="glass-panel p-2 round -xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"玻璃面板p-2圆形-xl边框-白色/10阴影-[0_8px_32px_rgba(0,0,0,0.5)]
+                <div class="relative w-36 h-28 bg-black/40 rounded-lg overflow-hidden border border-white/5">< span    跨度class   类=" font - family：宋体；font - family：宋体；font - family：宋体
                      <canvas id="output_canvas" width="160" height="120" class="w-full h-full object-cover transform scale-x-[-1]"></canvas>
-                     <div class="absolute top-2 right-2 flex items-center gap-1 bg-black/60 px-1.5 py-0.5 rounded-full backdrop-blur-sm">
+                     <div class="absolute top-2 right-2 flex items-center gap-1 bg-black/60 px-1.5 py-0.5 rounded-full backdrop-blur-sm">< span    跨度style =" font - family：宋体，宋体，宋体，宋体
                         <div id="cam-status-dot" class="w-1.5 h-1.5 rounded-full bg-red-500 transition-colors duration-300"></div>
-                        <span id="cam-status-text" class="text-[8px] text-red-400 font-mono">NO HAND</span>
+                        <span id="cam-status-text" class="text-[8px] text-red-400 font-mono">NO HAND   手</span>
                      </div>
                 </div>
-                <div class="text-center mt-1.5">
-                    <p class="text-[10px] text-pink-200/70 tracking-widest uppercase scale-90">Camera View</p>
+                <div class="text-center mt-1.5">< span    跨度style =“ font   字体 - family   家庭 - family    家庭”
+                    <p class="text-[10px] text-pink-200/70 tracking-widest uppercase scale-90">Camera View   视图</p>
                 </div>
             </div>
         </div>
@@ -253,50 +257,50 @@
 
     <!-- 惊喜层 -->
     <div id="surprise-layer" class="hidden">
-        <button id="reveal-btn" class="safe-click-area hidden px-10 py-5 bg-white text-pink-600 rounded-full font-bold text-2xl shadow-[0_0_60px_rgba(255,105,180,0.8)] hover:scale-105 transition-transform duration-300 animate-float">🎁 打开礼物</button>
+        <button id="reveal-btn" class="safe-click-area hidden px-10 py-5 bg-white text-pink-600 rounded-full font-bold text-2xl shadow-[0_0_60px_rgba(255,105,180,0.8)] hover:scale-105 transition-transform duration-300 animate-float">🎁 打开礼物</button>🎁
         
         <!-- 卡片容器 -->
         <div id="flip-card-container" class="hidden flip-card w-full max-w-sm md:max-w-md aspect-[3/4] mx-6 pop-in">
             <div class="flip-card-inner">
                 
                 <!-- 正面：引导开启 -->
-                <div class="flip-card-front glass-panel bg-gradient-to-br from-pink-500/40 to-purple-600/40 border border-white/30 p-1">
-                    <div class="bg-black/80 rounded-[1rem] p-6 h-full flex flex-col backdrop-blur-md">
-                        <div class="w-full aspect-[4/3] bg-gray-800 rounded-lg mb-6 overflow-hidden relative border border-white/10 shadow-inner">
+                <div class="flip-card-front glass-panel bg-gradient-to-br from-pink-500/40 to-purple-600/40 border border-white/30 p-1">< span    跨度style   风格 =" font - family：宋体，宋体，宋体，宋体，宋体
+                    <div class="bg-black/80 rounded-[1rem] p-6 h-full flex flex-col backdrop-blur-md">< span    跨度style   风格 =“ font   字体 - family：宋体，宋体，宋体”
+                        <div class="w-full aspect-[4/3] bg-gray-800 rounded-lg mb-6 overflow-hidden relative border border-white/10 shadow-inner">< span    跨度class   类=" font - family -宋体-宋体-宋体-宋体-宋体-宋体-宋体
                             <img src="https://bpic.588ku.com/Templet_origin_pic/05/19/43/8c971b1364922e551b4fbccb2d5719d2.jpg" class="w-full h-full object-cover" alt="Gift">
-                            <div class="absolute bottom-3 left-4 text-white/90 font-handwriting text-2xl">Happy Birthday!</div>
+                            <div class="absolute bottom-3 left-4 text-white/90 font-handwriting text-2xl">Happy Birthday   生日!</div>< span class="absolute bottom-3 left-4 text-white/ 90font   字体 -handwriting    笔迹text   文本-2xl">生日快乐！< / div >
                         </div>
-                        <div class="text-center mt-auto mb-8">
+                        <div class="text-center mt-auto mb-8">< span    跨度style   风格 =“ font   字体 - family   家庭 - family   家庭 - family    家庭”
                             <p class="text-gray-300 mb-6 font-light leading-relaxed">这不仅仅是一场数字烟花，<br>更是为你准备的专属时刻。</p>
-                            <button id="next-surprise-btn" class="safe-click-area w-full py-3 bg-gradient-to-r from-pink-600 to-purple-700 rounded-xl font-bold text-white shadow-lg hover:brightness-110 active:scale-95 transition">What's the surprise? ✨</button>
+                            <button id="next-surprise-btn" class="safe-click-area w-full py-3 bg-gradient-to-r from-pink-600 to-purple-700 rounded-xl font-bold text-white shadow-lg hover:brightness-110 active:scale-95 transition">What's the surprise? ✨</button> < /按钮
                         </div>
                     </div>
                 </div>
 
                 <!-- 背面：祝福内容 (分页显示) -->
-                <div class="flip-card-back glass-panel bg-gradient-to-br from-purple-500/40 to-blue-600/40 border border-white/30 p-1">
-                    <div class="bg-black/90 rounded-[1rem] p-8 h-full flex flex-col items-center justify-center backdrop-blur-md">
+                <div class="flip-card-back glass-panel bg-gradient-to-br from-purple-500/40 to-blue-600/40 border border-white/30 p-1">< span    跨度style   风格 =" font - family：宋体，宋体，宋体，宋体，宋体
+                    <div class="bg-black/90 rounded-[1rem] p-8 h-full flex flex-col items-center justify-center backdrop-blur-md">< span    跨度style   风格 =“ font   字体 - family：宋体，宋体，宋体，宋体”
                         
                         <!-- 第一页：生日祝福 (带照片) -->
                         <div id="card-page-1" class="w-full h-full flex flex-col">
-                            <div class="mb-4 text-5xl animate-bounce text-center">💌</div>
-                            <h3 class="text-2xl font-bold text-pink-300 mb-6 font-handwriting text-center">致最特别的你</h3>
-                            <div id="typewriter-text-1" class="text-left text-gray-200 space-y-4 font-light leading-7 text-sm md:text-base border-l-2 border-pink-500/50 pl-4 mb-4 flex-grow scrollable-text"></div>
+                            <div class="mb-4 text-5xl animate-bounce text-center">💌</div>< span style =" font - family - family - family - family - family - family - family - family - family - family - family - family - family - family - family - family
+                            <h3 class="text-2xl font-bold text-pink-300 mb-6 font-handwriting text-center">致最特别的你</h3>< span style =" font- family - family - family - family - family - family - family - family - family - family - family - family " 
+                            <div id="typewriter-text-1" class="text-left text-gray-200 space-y-4 font-light leading-7 text-sm md:text-base border-l-2 border-pink-500/50 pl-4 mb-4 flex-grow scrollable-text"></div>< span style =" font- family：宋体；font- family：宋体；font- family：宋体；font- family：宋体
                             
-                            <button id="to-page-2-btn" class="safe-click-area px-6 py-2 mt-auto rounded-full bg-white/10 text-pink-200 hover:bg-white/20 transition text-sm flex items-center justify-center mx-auto">
+                            <button id="to-page-2-btn" class="safe-click-area px-6 py-2 mt-auto rounded-full bg-white/10 text-pink-200 hover:bg-white/20 transition text-sm flex items-center justify-center mx-auto">< span    跨度style   风格 =“ font   字体 - family   家庭 - family   家庭 - family   家庭 - family   家庭 - family   家庭 - family   家庭 - family   家庭 - family   家庭 - family   家庭 - family   家庭 - family    家庭”
                                 还有话对你说... <span class="ml-2">👉</span>
-                            </button>
+                            </button>   > < /按钮
                         </div>
 
                         <!-- 第二页：快递信息 (纯文字，带滚动) -->
                         <div id="card-page-2" class="w-full h-full flex flex-col hidden">
-                            <h3 class="text-xl font-bold text-purple-300 mb-4 font-handwriting text-center mt-2">一点小小的歉意</h3>
+                            <h3 class="text-xl font-bold text-purple-300 mb-4 font-handwriting text-center mt-2">一点小小的歉意</h3>< span style =" font- family - family - family - family - family - family - family - family - family - family - family
                             <!-- 滚动区域 -->
-                            <div id="typewriter-text-2" class="text-left text-gray-200 space-y-3 font-light leading-6 text-sm md:text-base border-l-2 border-purple-500/50 pl-4 mb-4 flex-grow scrollable-text h-full"></div>
+                            <div id="typewriter-text-2" class="text-left text-gray-200 space-y-3 font-light leading-6 text-sm md:text-base border-l-2 border-purple-500/50 pl-4 mb-4 flex-grow scrollable-text h-full"></div>< span style =" font- family：宋体；font- family：宋体；font- family：宋体；font- family：宋体；font- family：宋体
                             
-                            <button id="close-card-btn" class="safe-click-area px-8 py-2 mt-auto rounded-full border border-white/30 text-gray-300 hover:bg-white/10 hover:text-white transition text-sm mx-auto">
+                            <button id="close-card-btn" class="safe-click-area px-8 py-2 mt-auto rounded-full border border-white/30 text-gray-300 hover:bg-white/10 hover:text-white transition text-sm mx-auto">class   类=" font - family：宋体；font - family：宋体；font - family：宋体；font - family：宋体   字体
                                 收起卡片
-                            </button>
+                            </button>   > < /按钮
                         </div>
 
                     </div>
@@ -305,102 +309,103 @@
         </div>
     </div>
 
-    <script>
+    <script>   < >脚本
         // --- 调试日志工具 ---
-        const debugConsole = document.getElementById('debug-console');
-        function log(msg) {
-            if (debugConsole) {
-                const time = new Date().toLocaleTimeString();
-                debugConsole.innerHTML += `[${time}] ${msg}<br>`;
+        const debugConsole = document.getElementById('debug-console');const   常量 debugConsole = document   文档.getElementById('debug-console'   调试操控台的)；
+        function log(msg) {   函数日志（msg） {
+            if (debugConsole) {   如果（debugConsole） {
+                const time = new Date().toLocaleTimeString();const   常量   时间 time   时间 = new   新    日期Date   日期().toLocaleTimeString()；
+                debugConsole.innerHTML += `[${time}] ${msg}<br>`;debugConsole。innerHTML = ' [${time}] ${msg}
+ ';
             }
-            console.log(msg);
+            console.log(msg);   console   控制台.log   日志(味精);
         }
 
-        const IS_MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const IS_MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);const   常量 IS_MOBILE = /Android|webOS|iPhone|iPad|iPod|黑莓|IEMobile|Opera Mini/i/Android    安卓b| webOS    网络操作系统b| iPhone b| iPad b| iPod|手机|手机|Opera Mini.test   测试(navigator   导航器.userAgent)；
         
-        if (window.location.protocol === 'file:') {
-            document.getElementById('protocol-warning').style.display = 'block';
+        if (window.location.protocol === 'file:') {如果(window   窗口.location。协议=== ‘文件：’){
+            document.getElementById('protocol-warning').style.display = 'block';.style   风格 . getelementbyid(“protocol   ”协议-warning”   警告”)。Display   。显示 = 'block'   “块”；
         }
 
         // --- 全局变量与配置 ---
-        const CAKE_THEME = { bottom: "#FF69B4", top: "#FFB6C1", cream: "#FFFFFF" };
-        const VISUAL_CONFIG = { particleCount: IS_MOBILE ? 4000 : 7500, color: 0xff69b4, blowThreshold: 25, blowMaxDuration: 100 };
-        const STATE = { INTRO: -1, IDLE: 0, COUNTDOWN: 1, CAKE: 2, BLOWING: 3, CELEBRATION: 4 };
+        const CAKE_THEME = { bottom: "#FF69B4", top: "#FFB6C1", cream: "#FFFFFF" };const   常量 CAKE_THEME = {bottom   底: "#FF69B4"   “# FF69B4”, top   前: "#FFB6C1"   “# FFB6C1”, cream   奶油: "#FFFFFF"}；
+        const VISUAL_CONFIG = { particleCount: IS_MOBILE ? 4000 : 7500, color: 0xff69b4, blowThreshold: 25, blowMaxDuration: 100 };const   常量 VISUAL_CONFIG = {particleCount: IS_MOBILE ？4000: 7500，颜色：0xff69b4， blowThreshold: 25, blowMaxDuration: 100}；
+        const STATE = { INTRO: -1, IDLE: 0, COUNTDOWN: 1, CAKE: 2, BLOWING: 3, CELEBRATION: 4 };const   常量   状态 STATE   状态 = {INTRO   介绍: -1, IDLE   闲置: 0, COUNTDOWN   倒计时: 1, CAKE   蛋糕: 2, blow   打击: 3, CELEBRATION   庆祝活动: 4}；
         
-        let currentState = STATE.INTRO;
-        let interactionMode = 0; 
+        let currentState = STATE.INTRO;let   让   现状后 currentState   现状后 = STATE   状态.INTRO；   介绍;
+        let interactionMode = 0;    让interactionMode = 0；
         
-        let particlesData = [];
-        let scene, camera, renderer, particleSystem;
-        let time = 0;
-        let shapeCache = {}; 
-        let blowProgress = 0;
-        let isSpacePressed = false; 
-        let isTouching = false; 
+        let particlesData = [];   let   让 particlesData = []；
+        let scene, camera, renderer, particleSystem;让场景、相机、渲染器、粒子系统；
+        let time = 0;   设time = 0；
+        let shapeCache = {};    让shape = {}；
+        let blowProgress = 0;   让blowProgress = 0；
+        let isSpacePressed = false;    let   让 isSpacePressed = false；   虚假的;
+        let isTouching = false;    let   让 isTouching = false；   虚假的;
         
-        let rotationVelocity = 0;
-        let isDragging = false;
-        let previousMouseX = 0;
-        let lastHandX = 0;
-        let autoRotateSpeed = 0.005;
+        let rotationVelocity = 0;   设rotationVelocity = 0；
+        let isDragging = false;   let   让 isdrag = false；   虚假的;
+        let previousMouseX = 0;   让previousMouseX = 0；
+        let lastHandX = 0;   let   让 lastandx = 0；
+        let autoRotateSpeed = 0.005;设autorotatspeed = 0.005；
 
         // --- 自动倒数变量 ---
-        let autoEntryTimer = null;
-        let autoEntrySeconds = 10;
+        let autoEntryTimer = null;   让autoEntryTimer = null；   零;
+        let autoEntrySeconds = 10;   请注意自动输入秒= 10;
         
-        let audioContext, analyser;
-        const bgm = document.getElementById('bgm');
+        let audioContext, analyser;让audioContext，分析器；
+        const bgm = document.getElementById('bgm');const   常量 bgm = document   文档.getElementById('bgm'   “bgm”)；
 
         const ui = {
-            startOverlay: document.getElementById('start-overlay'),
-            uiLayer: document.getElementById('ui-layer'),
-            statusText: document.getElementById('status-text'),
-            statusDot: document.getElementById('status-dot'),
-            mainText: document.getElementById('instruction-text'),
-            subText: document.getElementById('sub-instruction'),
-            handIcon: document.getElementById('hand-icon'),
-            blowMeter: document.getElementById('blow-meter-container'),
-            blowBar: document.getElementById('blow-meter-bar'),
-            blowHint: document.getElementById('blow-hint'),
-            surpriseLayer: document.getElementById('surprise-layer'),
-            revealBtn: document.getElementById('reveal-btn'),
-            floatingGiftBtn: document.getElementById('floating-gift-btn'),
-            cardContainer: document.getElementById('flip-card-container'), 
-            nextBtn: document.getElementById('next-surprise-btn'),
-            closeBtn: document.getElementById('close-card-btn'),
-            settingsPanel: document.getElementById('settings-panel'),
-            settingsToggle: document.getElementById('settings-toggle'),
-            topBanner: document.getElementById('top-banner'),
-            startBtn: document.getElementById('start-btn'),
-            loadingText: document.getElementById('loading-text'),
-            camStatusDot: document.getElementById('cam-status-dot'),
-            camStatusText: document.getElementById('cam-status-text'),
+            startOverlay: document.getElementById('start-overlay'),startOverlay: . getelementbyid(“start   “开始-overlay”   覆盖”),
+            uiLayer: document.getElementById('ui-layer'),uiLayer:文件。getElementById(“ui   “iu-layer”   层”),
+            statusText: document.getElementById('status-text'),statusText: . getelementbyid(“状态文本”),
+            statusDot: document.getElementById('status-dot'),statusDot: . getelementbyid(“status   ”状态-dot”   点”),
+            mainText: document.getElementById('instruction-text'),mainText: . getelementbyid(“instruction   ”指令-text”   文本”),
+            subText: document.getElementById('sub-instruction'),潜台词:. getelementbyid(“sub   “子-instruction”   指令”),
+            handIcon: document.getElementById('hand-icon'),handIcon: . getelementbyid(指针图标),
+            blowMeter: document.getElementById('blow-meter-container'),blowMeter: . getelementbyid(“blow   “打击-meter   计-container”   容器”),
+            blowBar: document.getElementById('blow-meter-bar'),blowBar: . getelementbyid(“blow   “打击-meter   计-bar”   酒吧”),
+            blowHint: document.getElementById('blow-hint'),blowHint: . getelementbyid(“blow   “打击-hint”   提示“),
+            surpriseLayer: document.getElementById('surprise-layer'),surpriseLayer: . getelementbyid(“surprise   “惊喜-layer”   层”),
+            revealBtn: document.getElementById('reveal-btn'),revealBtn: . getelementbyid(“reveal   “揭露-btn”   btn "),
+            floatingGiftBtn: document.getElementById('floating-gift-btn'),floatingGiftBtn: document   文档.getElementById (floating   浮动-gift   礼物-btn”   btn "),
+            cardContainer: document.getElementById('flip-card-container'), cardContainer: . getelementbyid(“flip   “抛-card   卡-container”   容器”),
+            nextBtn: document.getElementById('next-surprise-btn'),nextBtn: document   文档.getElementById (next   下一个-surprise   惊喜-btn”   btn "),
+            closeBtn: document.getElementById('close-card-btn'),closeBtn: document   文档.getElementById (close   关闭-card   卡-btn”   btn "),
+            settingsPanel: document.getElementById('settings-panel'),settingsPanel: . getelementbyid(“设置面板”),
+            settingsToggle: document.getElementById('settings-toggle'),settingsToggle: . getelementbyid(“settings   “设置-toggle”   切换”),
+            topBanner: document.getElementById('top-banner'),topBanner: . getelementbyid(顶部横幅)
+            startBtn: document.getElementById('start-btn'),startBtn: document   文档.getElementById (start   开始-btn”   btn "),
+            loadingText: document.getElementById('loading-text'),loadingText: . getelementbyid(“装载文本”),
+            camStatusDot: document.getElementById('cam-status-dot'),camStatusDot: . getelementbyid(“cam   “凸轮-status   状态-dot”   点”),
+            camStatusText: document.getElementById('cam-status-text'),camStatusText: . getelementbyid(“cam   “凸轮-status   状态-text”   文本”),
             // 卡片相关 UI
-            page1: document.getElementById('card-page-1'),
-            page2: document.getElementById('card-page-2'),
+            page1: document.getElementById('card-page-1'),所述:. getelementbyid(“card   ”牌-page   页面-1”),
+            page2: document.getElementById('card-page-2'),所以page2: . getelementbyid(“card   ”牌-page   页面-2”),
             toPage2Btn: document.getElementById('to-page-2-btn'),
-            textContainer1: document.getElementById('typewriter-text-1'),
-            textContainer2: document.getElementById('typewriter-text-2'),
+            textContainer1: document.getElementById('typewriter-text-1'),textContainer1: . getelementbyid(“typewriter   “打字机-text   文本-1”),
+            textContainer2: document.getElementById('typewriter-text-2'),textContainer2: . getelementbyid(“typewriter   “打字机-text   文本-2”),
             // 自动倒数文本
-            autoCountdownText: document.getElementById('auto-countdown-text')
+            autoCountdownText: document.getElementById('auto-countdown-text')autoCountdownText: . getelementbyid(“auto   “自动-countdown   倒计时-text”   文本”)
         };
 
         // 立即初始化 Three.js
         initThree();
 
-        function initThree() {
-            const container = document.getElementById('canvas-container');
-            scene = new THREE.Scene();
-            scene.fog = new THREE.FogExp2(0x000000, 0.002);
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 50;
-            renderer = new THREE.WebGLRenderer({ antialias: !IS_MOBILE, alpha: true, powerPreference: "high-performance" });
+        function initThree() {   initThree() {
+            const container = document.getElementById('canvas-container');const   常量   容器 container   容器 = document   文档.getElementById('canvas-container'   “画布容器”)；
+            scene = new THREE.Scene();   scene   场景 = new   新 THREE   三个.Scene   场景()；
+            scene.fog = new THREE.FogExp2(0x000000, 0.002);现场。雾=新的三。FogExp2 (0 x000000, 0.002);
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);相机=新的三。PerspectiveCamera(75年,窗口。innerWidth / window。innerHeight   窗口。innerHeight, 0.1, 1000)；
+            camera.position.z = 50;   Camera   相机.position   位置.z = 50；
+            renderer = new THREE.WebGLRenderer({ antialias: !IS_MOBILE, alpha: true, powerPreference: "high-performance" });renderer   渲染器 = new   新    三。WebGLRendererTHREE。WebGLRenderer   三。WebGLRenderer({antialias   抗锯齿: ！IS_MOBILE, alpha   α: true   真正的, powerPreference: “高性能”})；
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             container.appendChild(renderer.domElement);
             preloadShapes();
             createParticles();
-            window.addEventListener('resize', () => {
+            window.addEventListener('resize', () => {窗口。addEventListener('resize'   “调整”, () => {
                 camera.aspect = window.innerWidth / window.innerHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -409,405 +414,407 @@
             const onStart = (x) => {
                 if(interactionMode === 1) {
                     isDragging = true;
-                    previousMouseX = x;
-                    rotationVelocity = 0; 
+                    previousMouseX = x;   preousmousex = x；   x;
+                    rotationVelocity = 0;    rotationVelocity = 0；
                 }
             };
             const onMove = (x) => {
-                if(isDragging && interactionMode === 1) {
-                    const delta = x - previousMouseX;
-                    const sensitivity = IS_MOBILE ? 0.015 : 0.008; 
-                    rotationVelocity = delta * sensitivity;
-                    particleSystem.rotation.y += rotationVelocity;
-                    previousMouseX = x;
+                if(isDragging && interactionMode === 1) {if   如果(isdrag && interactionMode === 1) {
+                    const delta = x - previousMouseX;const   常量   δ delta   δ = x - preousmousex；
+                    const sensitivity = IS_MOBILE ? 0.015 : 0.008; const灵敏度= IS_MOBILE ？0.015: 0.008；
+                    rotationVelocity = delta * sensitivity;rotationVelocity = delta   δ *灵敏度；
+                    particleSystem.rotation.y += rotationVelocity;particlessystem . rotate   旋转 .y = rotationVelocity；   rotationVelocity;
+                    previousMouseX = x;   preousmousex = x；   x;
                 }
             };
-            const onEnd = () => { isDragging = false; };
+            const onEnd = () => { isDragging = false; };const   常量   竖着 onEnd   竖着 = () => {isdrag = false；   虚假的;}；
 
-            container.addEventListener('mousedown', (e) => onStart(e.clientX));
-            window.addEventListener('mousemove', (e) => onMove(e.clientX));
-            window.addEventListener('mouseup', onEnd);
+            container.addEventListener('mousedown', (e) => onStart(e.clientX));容器。addEventListener('mousedown'   “mousedown”, (e) => onStart(e. clientx))；
+            window.addEventListener('mousemove', (e) => onMove(e.clientX));窗口。addEventListener(' mousmove '   “鼠标移动”, (e) => onMove(e.f lix))；
+            window.addEventListener('mouseup', onEnd);窗口。addEventListener (mouseup,竖着);
 
-            container.addEventListener('touchstart', (e) => onStart(e.touches[0].clientX), {passive: false});
-            window.addEventListener('touchmove', (e) => {
-                if(isDragging) e.preventDefault(); 
+            container.addEventListener('touchstart', (e) => onStart(e.touches[0].clientX), {passive: false});container。addEventListener容器。addEventListener('touchstart'   ’touchstart’, (e) => onStart(e.touches   触摸[0]。clientX), {passive   被动: false   假})；
+            window.addEventListener('touchmove', (e) => {窗口。addEventListener('touchmove'   “touchmove”, (e) => {
+                if(isDragging) e.preventDefault(); 如果isDragging e.preventDefault ();
                 onMove(e.touches[0].clientX);
-            }, {passive: false});
-            window.addEventListener('touchend', onEnd);
+            }, {passive: false});   }，{被动：false})；
+            window.addEventListener('touchend', onEnd);窗口。addEventListener(’touchend’onEnd   “touchend 'onEnd);
             
-            render();
+            render();   呈现();
         }
 
-        function createParticles() {
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(VISUAL_CONFIG.particleCount * 3);
-            const colors = new Float32Array(VISUAL_CONFIG.particleCount * 3);
-            const sizes = new Float32Array(VISUAL_CONFIG.particleCount);
+        function createParticles() {函数createParticles() {
+            const geometry = new THREE.BufferGeometry();const   常量   几何 geometry = new   新 THREE   三个.BufferGeometry()；
+            const positions = new Float32Array(VISUAL_CONFIG.particleCount * 3);const   常量   位置 position = new   新 Float32Array（VISUAL_CONFIGFloat32Array (VISUAL_CONFIG. conf）   配置)* 3)；
+            const colors = new Float32Array(VISUAL_CONFIG.particleCount * 3);const   常量   颜色 colors = new   新 Float32Array（VISUAL_CONFIGFloat32Array (VISUAL_CONFIG. conf）   配置)* 3)；
+            const sizes = new Float32Array(VISUAL_CONFIG.particleCount);const   常量   大小 size = new   新 Float32Array(VISUAL_CONFIG.particleCount)；
             particlesData = [];
-            const c = new THREE.Color(VISUAL_CONFIG.color);
+            const c = new THREE.Color(VISUAL_CONFIG.color);const   常量 c = new   新 THREE   三个.Color   颜色(VISUAL_CONFIG.color   颜色)；
 
-            for (let i = 0; i < VISUAL_CONFIG.particleCount; i++) {
-                const x = (Math.random() - 0.5) * 300;
-                const y = (Math.random() - 0.5) * 300;
-                const z = (Math.random() - 0.5) * 200;
-                positions[i * 3] = x; positions[i * 3 + 1] = y; positions[i * 3 + 2] = z;
-                colors[i * 3] = c.r; colors[i * 3 + 1] = c.g; colors[i * 3 + 2] = c.b;
-                sizes[i] = Math.random() * 2;
+            for (let i = 0; i < VISUAL_CONFIG.particleCount; i++) {for   为 (let   让   我 i   我 = 0; i   我 < VISUAL_CONFIG.particleCount; i   我) {
+                const x = (Math.random() - 0.5) * 300;const   常量 x = (随机（）- 0.5)* 300；
+                const y = (Math.random() - 0.5) * 300;const   常量 y =（数学）随机（）- 0.5)* 300；
+                const z = (Math.random() - 0.5) * 200;const   常量 z =（数学）随机（）- 0.5)* 200；
+                positions[i * 3] = x; positions[i * 3 + 1] = y; positions[i * 3 + 2] = z;位置[i   我 * 3] = x；位置[i   我 * 3 1] = y；位置[i   我 * 3 2] = z；   z;
+                colors[i * 3] = c.r; colors[i * 3 + 1] = c.g; colors[i * 3 + 2] = c.b;color   颜色 [i   我 * 3] = c.r；color   r;颜色 [i   我 * 31] = c；color   c;颜色 [i   我 * 32] = c.b；   b;
+                sizes[i] = Math.random() * 2;size   大小 [i   我] = Math   数学.random   随机() * 2；
                 particlesData.push({
-                    current: new THREE.Vector3(x, y, z),
-                    target: new THREE.Vector3(x, y, z),
-                    baseTarget: new THREE.Vector3(x, y, z),
-                    velocity: new THREE.Vector3(0, 0, 0),
-                    type: 'bg', layer: null, targetColor: c.clone(),
-                    noiseOffset: Math.random() * 100,
-                    angle: Math.random() * Math.PI * 2, 
-                    radius: 20 + Math.random() * 40,
-                    orbitSpeed: (Math.random() - 0.5) * 0.02
+                    current: new THREE.Vector3(x, y, z),当前：新的三个。向量3(x, y, z)，
+                    target: new THREE.Vector3(x, y, z),目标：新的THREE。向量3(x, y, z)，
+                    baseTarget: new THREE.Vector3(x, y, z),basettarget：新三。向量3(x, y, z)，
+                    velocity: new THREE.Vector3(0, 0, 0),速度：新的三。Vector3(0,0,0)，
+                    type: 'bg', layer: null, targetColor: c.clone(),类型：‘bg’，图层：null， targetColor: c.clone   克隆()，
+                    noiseOffset: Math.random() * 100,noiseOffset: Math   数学.random   随机() * 100
+                    angle: Math.random() * Math.PI * 2, angle   角: Math   数学.random（）   随机()* 2，
+                    radius: 20 + Math.random() * 40,Math   数学.random   随机() * 40，
+                    orbitSpeed: (Math.random() - 0.5) * 0.02orbitSpeed:(数学。随机（）- 0.5)* 0.02
                 });
             }
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-            geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-            const material = new THREE.PointsMaterial({ size: 1.2, vertexColors: true, map: getCircleTexture(), transparent: true, opacity: 0.8, depthWrite: false, blending: THREE.AdditiveBlending });
-            particleSystem = new THREE.Points(geometry, material);
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));几何学。setAttribute('position'   “位置”, new   新    三。BufferAttributeTHREE。BufferAttribute(位置,3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));几何学。setAttribute('color'   “颜色”, new   新 THREE。BufferAttribute(颜色,3));
+            geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));几何学。setAttribute('size', new 3。BufferAttribute(大小,1));
+            const material = new THREE.PointsMaterial({ size: 1.2, vertexColors: true, map: getCircleTexture(), transparent: true, opacity: 0.8, depthWrite: false, blending: THREE.AdditiveBlending });const   常量   材料 material = new   新    三。PointsMaterialTHREE。PointsMaterial({size   大小: 1.2, vertexColors: true   真正的, map   地图: getCircleTexture(), transparent   透明的: true   真正的, opacity   不透明度: 0.8, depthWrite: false   假, blending   混合: THREE。AdditiveBlending});
+            particleSystem = new THREE.Points(geometry, material);particlessystem = new   新 THREE。点(几何、材料);
             scene.add(particleSystem);
         }
 
-        function getCircleTexture() {
-            const c = document.createElement('canvas'); c.width=64; c.height=64;
-            const ctx=c.getContext('2d');
-            const g=ctx.createRadialGradient(32,32,0,32,32,32);
+        function getCircleTexture() {getCircleTexture() {
+            const c = document.createElement('canvas'); c.width=64; c.height=64;const   常量 c = document   文档.createElement('canvas'   “画布”)；c   c;.width   宽度 = 64;c.height   高度 = 64;
+            const ctx=c.getContext('2d');const   常量 ctx = c.getContext (2 d);
+            const g=ctx.createRadialGradient(32,32,0,32,32,32);32岁的常量g = ctx.createRadialGradient(32 0, 32岁,32岁,32);
             g.addColorStop(0,'rgba(255,255,255,1)'); g.addColorStop(1,'rgba(255,255,255,0)');
             ctx.fillStyle=g; ctx.fillRect(0,0,64,64);
-            return new THREE.CanvasTexture(c);
+            return new THREE.CanvasTexture(c);返回新的THREE.CanvasTexture(c)；
         }
 
-        function getShapePoints(type, text) {
-            const points = [];
-            if (type === 'text') {
-                const c = document.createElement('canvas'); c.width=250; c.height=250;
-                const ctx=c.getContext('2d');
-                ctx.font = 'bold 120px Arial';
-                ctx.fillStyle = 'white'; ctx.textAlign='center'; ctx.textBaseline='middle';
-                ctx.fillText(text, 125, 125);
-                const data = ctx.getImageData(0,0,250,250).data;
-                const step = 2;
-                for(let y=0; y<250; y+=step) {
-                    for(let x=0; x<250; x+=step) {
-                        if(data[(y*250+x)*4+3]>128) {
-                            points.push({ vec: new THREE.Vector3((x-125)/3.5, -(y-125)/3.5, 0).multiplyScalar(2), type: 'text', color: new THREE.Color(0xffffff) });
+        function getShapePoints(type, text) {函数getShapePoints（类型，文本）{
+            const points = [];   Const    常量points   点 = []；
+            if (type === 'text') {   If (type   类型 === 'text'   “文本”) {
+                const c = document.createElement('canvas'); c.width=250; c.height=250;const   常量 c = document   文档.createElement('canvas')；c.width = 250;c.height = 250;
+                const ctx=c.getContext('2d');const ctx = c.getContext (2 d);
+                ctx.font = 'bold 120px Arial';ctx。font = 'bold 120px Arial'；
+                ctx.fillStyle = 'white'; ctx.textAlign='center'; ctx.textBaseline='middle';ctx.fillStyle = ‘白色’；ctx.textAlign =“中心”;ctx.textBaseline =“中产”;
+                ctx.fillText(text, 125, 125);ctx.fillText(text, 125,125)；
+                const data = ctx.getImageData(0,0,250,250).data;const data = ctx.getImageData(0,0,250,250).data；
+                const step = 2;   Const step = 2；
+                for(let y=0; y<250; y+=step) {For (let y=0; y<250; y= step) {
+                    for(let x=0; x<250; x+=step) {For   为 (let   让 x=0; x<250; x= step   一步。) {
+                        if(data[(y*250+x)*4+3]>128) {If (data   数据[(y*250 x)*4 3]>128) {
+                            points.push({ vec: new THREE.Vector3((x-125)/3.5, -(y-125)/3.5, 0).multiplyScalar(2), type: 'text', color: new THREE.Color(0xffffff) });点。push({vec: new   新    三个THREE. vector3 ((x-125)/3.5, -(y-125)/3.5, 0). multiplyscalar (2), type   类型: 'text'   “文本”, color   颜色: new   新 THREE。颜色(0 xffffff)});
                         }
                     }
                 }
             } else if (type === 'cake') {
-                const layers = [{y: -16, r: 18, h: 10, type: 'bottom'}, {y: -6,  r: 13, h: 8,  type: 'top'}];
-                layers.forEach(l => {
-                    for(let i=0; i<(IS_MOBILE?800:1500); i++) {
-                        const theta = Math.random() * Math.PI * 2;
-                        const r = l.r * (0.95 + Math.random()*0.05); 
-                        const h = Math.random() * l.h;
-                        points.push({ vec: new THREE.Vector3(r*Math.cos(theta), l.y+h, r*Math.sin(theta)), type: 'cake', layer: l.type });
+                const layers = [{y: -16, r: 18, h: 10, type: 'bottom'}, {y: -6,  r: 13, h: 8,  type: 'top'}];const层= [{y: -16 r: 18 h: 10,类型:“底部”},{h: y: 6 r: 13日8日类型:“顶级”});
+                layers.forEach(l => {   层。forEach(1 = bb0 {
+                    for(let i=0; i<(IS_MOBILE?800:1500); i++) {for   为(let   让   我 i=0; i   我<(IS_MOBILE?800:1500)；I) {
+                        const theta = Math.random() * Math.PI * 2;const   常量   θ theta = Math   数学.random   随机() * Math。PI   Math。教室不规则 * 2；
+                        const r = l.r * (0.95 + Math.random()*0.05); const   常量 r = l.r * (0.95 Math.random   随机()*0.05)；
+                        const h = Math.random() * l.h;const   常量 h = Math   数学.random   随机() * l.h；   h;
+                        points.push({ vec: new THREE.Vector3(r*Math.cos(theta), l.y+h, r*Math.sin(theta)), type: 'cake', layer: l.type });点。push（{vec: new   新 THREE   三个.Vector3）cos   Vector3)科() l * h * r*数学。Sin (theta   θ)), type   类型: 'cake'   “蛋糕”, layer   层: l.type   类型})；
                     }
-                    for(let i=0; i<500; i++) {
-                        const theta = Math.random() * Math.PI * 2;
-                        const r = Math.random() * l.r;
-                        points.push({ vec: new THREE.Vector3(r*Math.cos(theta), l.y+l.h, r*Math.sin(theta)), type: 'cake', layer: 'cream' });
+                    for(let i=0; i<500; i++) {   For (let i=0; i<500; i) {
+                        const theta = Math.random() * Math.PI * 2;const theta = Math.random() * Math。PI * 2；
+                        const r = Math.random() * l.r;const r = Math.random() * l.r；
+                        points.push({ vec: new THREE.Vector3(r*Math.cos(theta), l.y+l.h, r*Math.sin(theta)), type: 'cake', layer: 'cream' });点。push（{vec: new THREE.Vector3）cos() l y l h r*数学。Sin (theta)), type: 'cake', layer: 'cream'})；
                     }
-                    for(let i=0; i<100; i++) {
-                        const theta = Math.random() * Math.PI * 2;
-                        const r = l.r + 0.2;
-                        const h = Math.random() * l.h;
-                        const sprinkleColor = new THREE.Color().setHSL(Math.random(), 1, 0.6);
+                    for(let i=0; i<100; i++) {   For (let i=0; i<100; i) {
+                        const theta = Math.random() * Math.PI * 2;const theta = Math.random() * Math。PI * 2；
+                        const r = l.r + 0.2;   Const r = l.r 0.2；
+                        const h = Math.random() * l.h;const h = Math.random() * l.h；
+                        const sprinkleColor = new THREE.Color().setHSL(Math.random(), 1, 0.6);const sprinkleColor = new THREE.Color(). sethsl(数学。Random (), 1,0.6)；
                         points.push({
-                            vec: new THREE.Vector3(r*Math.cos(theta), l.y+h, r*Math.sin(theta)),
-                            type: 'cake', color: sprinkleColor
+                            vec: new THREE.Vector3(r*Math.cos(theta), l.y+h, r*Math.sin(theta)),vec: new   新    三个THREE.Vector3(r*Math。cos（) l y h r* math, sin   罪()）
+                            type: 'cake', color: sprinkleColor类型：“蛋糕”，颜色：“五彩缤纷”
                         });
                     }
                 });
-                const candleY = layers[1].y + layers[1].h;
-                for(let i=0; i<300; i++) {
-                    const h = Math.random() * 12;
-                    const r = Math.random() * 0.8;
-                    const theta = Math.random() * Math.PI * 2;
-                    let col = (Math.sin(h*1.5 + theta)>0) ? new THREE.Color(0xFF0000) : new THREE.Color(0xFFFFFF);
-                    points.push({ vec: new THREE.Vector3(r*Math.cos(theta), candleY+h, r*Math.sin(theta)), type: 'candle', color: col });
+                const candleY = layers[1].y + layers[1].h;const   常量 candleY = layers   层[1]。y层[1]. h;
+                for(let i=0; i<300; i++) {   For   为 (let   让    我i=0; i   我<300; i   我) {
+                    const h = Math.random() * 12;   const   常量 h = Math   数学.random   随机() * 12；
+                    const r = Math.random() * 0.8;const   常量 r = Math   数学.random   随机() * 0.8；
+                    const theta = Math.random() * Math.PI * 2;const   常量   θ theta = Math   数学.random   随机() * Math。PI   Math。教室不规则 * 2；
+                    let col = (Math.sin(h*1.5 + theta)>0) ? new THREE.Color(0xFF0000) : new THREE.Color(0xFFFFFF);let   让   上校 col = (math。sin(h*1.5)>0) ？新三人。Color(0xFF0000   0 xff0000): new   新 THREE   三个.Color   颜色(0xFFFFFF)；
+                    points.push({ vec: new THREE.Vector3(r*Math.cos(theta), candleY+h, r*Math.sin(theta)), type: 'candle', color: col });点。push（{vec: new   新 THREE   三个.Vector3）cos   Vector3)科() candleY h r*Math。Sin (theta   θ))，类型：‘candle’，颜色：col})；
                 }
-                const flameY = candleY + 12;
-                for(let i=0; i<400; i++) {
-                    const u = Math.random();
-                    const h = u * 7;
-                    const r = (1-u) * 2.0 * Math.random();
-                    const theta = Math.random() * Math.PI * 2;
-                    let col = new THREE.Color(0xFFA500);
-                    if(u<0.2) col.setHex(0x0000FF); else if(u>0.7) col.setHex(0xFF4500);
-                    points.push({ vec: new THREE.Vector3(r*Math.cos(theta), flameY+h, r*Math.sin(theta)), type: 'flame', color: col });
+                const flameY = candleY + 12;   const   常量 flameY = candleY 12；
+                for(let i=0; i<400; i++) {   For (let i=0; i<400; i) {
+                    const u = Math.random();   const u = Math.random()；
+                    const h = u * 7;   Const h = u * 7；
+                    const r = (1-u) * 2.0 * Math.random();const r = (1-u) * 2.0 * Math.random()；
+                    const theta = Math.random() * Math.PI * 2;const theta = Math.random() * Math。PI * 2；
+                    let col = new THREE.Color(0xFFA500);let col = new THREE.Color(0xFFA500)；
+                    if(u<0.2) col.setHex(0x0000FF); else if(u>0.7) col.setHex(0xFF4500);如果(u < 0.2) col.setHex (0 x0000ff);else if(u>0.7) col.setHex(0xFF4500)；
+                    points.push({ vec: new THREE.Vector3(r*Math.cos(theta), flameY+h, r*Math.sin(theta)), type: 'flame', color: col });点。push（{vec: new THREE.Vector3）cos() h r*数学。Sin (theta))，类型：‘火焰’，颜色：col})；
                 }
             }
-            return points;
-        }
+            return points;   返回点;
+                                                              }
 
-        function preloadShapes() {
-            setTimeout(() => {
-                shapeCache['3'] = getShapePoints('text', '3');
-                shapeCache['2'] = getShapePoints('text', '2');
-                shapeCache['1'] = getShapePoints('text', '1');
-                shapeCache['cake'] = getShapePoints('cake');
-                ui.loadingText.style.display = 'none';
+        function preloadShapes() {   函数preloadShapes() {
+            setTimeout(() => {   7月()=> (
+                shapeCache['3'] = getShapePoints('text', '3');shapeCache['3'] = getShapePoints('text'   “文本”, '3')；
+                shapeCache['2'] = getShapePoints('text', '2');shapeCache['2'] = getShapePoints('text'   “文本”, '2')；
+                shapeCache['1'] = getShapePoints('text', '1');shapeCache['1'] = getShapePoints('text'   “文本”, '1')；
+                shapeCache['cake'] = getShapePoints('cake');shapeCache['cake'   “蛋糕”] = getShapePoints('cake'   “蛋糕”)；
+                ui.loadingText.style.display = 'none';ui   洋葱.loadingText.style   风格.display   显示 = 'none'   “没有”；
             }, 100);
         }
 
-        function transitionTo(key) {
-            const targets = shapeCache[key] || [];
-            particlesData.forEach((p, i) => {
-                if (i < targets.length) {
+        function transitionTo(key) {函数transitionTo(key   关键) {
+            const targets = shapeCache[key] || [];const   常量   目标 targets = shapeCache[key   关键] || []；
+            particlesData.forEach((p, i) => {particlesData。forEach((p, i   我) = bb0 {
+                if (i < targets.length) {   If (i   我) < targets。长度){
                     p.baseTarget.copy(targets[i].vec);
                     p.target.copy(targets[i].vec);
                     p.type = targets[i].type;
-                    p.layer = targets[i].layer;
-                    if(targets[i].color) {
-                        p.targetColor = targets[i].color.clone();
+                    p.layer = targets[i].layer;P.layer   层 = targets   目标[i   我].layer；
+                    if(targets[i].color) {   如果目标[我]。颜色){
+                        p.targetColor = targets[i].color.clone();p.targetColor = targets   目标[i   我].color   颜色.clone()；
                     } else {
                         p.targetColor = new THREE.Color(0xffffff); 
                     }
-                    const force = 3;
-                    p.current.add(new THREE.Vector3((Math.random()-0.5)*force, (Math.random()-0.5)*force, (Math.random()-0.5)*force));
+                    const force = 3;   恒定力= 3；
+                    p.current.add(new THREE.Vector3((Math.random()-0.5)*force, (Math.random()-0.5)*force, (Math.random()-0.5)*force));p.current。添加(新THREE.Vector3 ((math . random   随机(-0.5)) *力量,(math . random   随机(-0.5)) *力量,(math . random   随机(-0.5)) *力));
                 } else {
-                    const angle = Math.random() * Math.PI * 2;
-                    const r = 40 + Math.random() * 40;
-                    p.baseTarget.set(r*Math.cos(angle), (Math.random()-0.5)*60, r*Math.sin(angle));
+                    const angle = Math.random() * Math.PI * 2;const   常量   角 angle = Math   数学.random   随机() * Math。PI   Math。教室不规则 * 2；
+                    const r = 40 + Math.random() * 40;const   常量 r = 40 Math   数学.random   随机() * 40；
+                    p.baseTarget.set(r*Math.cos(angle), (Math.random()-0.5)*60, r*Math.sin(angle));p.baseTarget.set   集 (r *数学。因为(角),(math . random   随机 (-0.5)) * 60, r * sin   罪(角));
                     p.target.copy(p.baseTarget);
-                    p.type = 'bg';
-                    p.layer = null;
-                    p.targetColor = new THREE.Color(0x222222);
+                    p.type = 'bg';   P.type = 'bg'；
+                    p.layer = null;   P.layer = null；
+                    p.targetColor = new THREE.Color(0x222222);p.targetColor = new THREE.Color(0x222222)；
                 }
             });
         }
 
-        function updateParticles() {
-            const positions = particleSystem.geometry.attributes.position.array;
-            const colors = particleSystem.geometry.attributes.color.array;
-            const sizes = particleSystem.geometry.attributes.size.array;
-            time += 0.02;
-            const blowInfluence = blowProgress / 100;
+        function updateParticles() {updateParticles() {
+            const positions = particleSystem.geometry.attributes.position.array;const position = particlessystem .geometry.attributes.position.array；
+            const colors = particleSystem.geometry.attributes.color.array;const colors = particlessystem .geometry.attributes.color.array；
+            const sizes = particleSystem.geometry.attributes.size.array;const size = particlessystem .geometry.attributes.size.array；
+            time += 0.02;   时间= 0.02；
+            const blowInfluence = blowProgress / 100;const blowInfluence = blowProgress / 100；
 
-            for (let i = 0; i < VISUAL_CONFIG.particleCount; i++) {
-                const p = particlesData[i];
-                let target = p.target.clone();
+            for (let i = 0; i < VISUAL_CONFIG.particleCount; i++) {for (let i = 0; i < VISUAL_CONFIG.particleCount; i) {
+                const p = particlesData[i];   const p = particlesData[i]；
+                let target = p.target.clone();让target = p.target.clone()；
 
-                if (p.type === 'cake') {
-                    if (p.layer === 'bottom') p.targetColor.set(CAKE_THEME.bottom);
-                    else if (p.layer === 'top') p.targetColor.set(CAKE_THEME.top);
-                    else if (p.layer === 'cream') p.targetColor.set(CAKE_THEME.cream);
+                if (p.type === 'cake') {   If (p.type   类型 === 'cake'   “蛋糕”) {
+                    if (p.layer === 'bottom') p.targetColor.set(CAKE_THEME.bottom);if   如果 (p.layer   层 === 'bottom'   “底”) p.targetColor.set   集(CAKE_THEME.bottom   底)；
+                    else if (p.layer === 'top') p.targetColor.set(CAKE_THEME.top);else   其他 if   如果 (p.layer   层 === 'top'   “顶级”) p.targetColor.set   集(CAKE_THEME.top   前)；
+                    else if (p.layer === 'cream') p.targetColor.set(CAKE_THEME.cream);如果（p.layer   层 === 'cream'   “霜”） p.targetColor.set   集(CAKE_THEME.cream   奶油)；
                 }
 
-                if (currentState === STATE.INTRO) {
-                    const angle = p.angle + time * 0.05;
-                    const r = p.radius + Math.sin(time * 0.5 + i * 0.01) * 10;
-                    target.x = Math.cos(angle) * r * 3;
-                    target.z = Math.sin(angle) * r * 3;
-                    target.y = p.baseTarget.y + Math.sin(time * 0.5 + target.x * 0.05) * 20; 
-                    const hue = 0.8 + (Math.sin(time * 0.1 + target.x * 0.01) * 0.1); 
-                    p.targetColor.setHSL(hue, 0.7, 0.6);
+                if (currentState === STATE.INTRO) {if   如果 （currentState   (现状后 === STATE   状态.）介绍){
+                    const angle = p.angle + time * 0.05;Const角= p角时间* 0.05；
+                    const r = p.radius + Math.sin(time * 0.5 + i * 0.01) * 10;const   常量 r = p.radius数学。Sin (time   时间 * 0.5 I * 0.01) * 10；
+                    target.x = Math.cos(angle) * r * 3;目标。x =数学。Cos（角度）* r * 3；
+                    target.z = Math.sin(angle) * r * 3;目标。z =数学。Sin（角度）* r * 3；
+                    target.y = p.baseTarget.y + Math.sin(time * 0.5 + target.x * 0.05) * 20; 目标。y = p. basettarget .ySin（时间）* 0.5目标。X * 0.05) * 20；
+                    const hue = 0.8 + (Math.sin(time * 0.1 + target.x * 0.01) * 0.1); const   常量   色调 hue = 0.8Sin（时间* 0.1目标）。X * 0.01) * 0.1)；
+                    p.targetColor.setHSL(hue, 0.7, 0.6);p.targetColor。setHSL（色相，0.7,0.6）；
                 }
-                else if (currentState === STATE.CELEBRATION && p.type === 'bg') {
-                    const angle = p.angle + time * 0.1 + p.orbitSpeed;
-                    const r = p.radius + Math.sin(time + i) * 5;
-                    target.x = Math.cos(angle) * r;
-                    target.z = Math.sin(angle) * r;
-                    target.y = p.baseTarget.y + Math.sin(time + p.noiseOffset) * 2;
-                    const hue = 0.9 + (Math.sin(time + i * 0.01) * 0.05); 
-                    p.targetColor.setHSL(hue, 0.8, 0.6);
+                else if (currentState === STATE.CELEBRATION && p.type === 'bg') {否则if （currentState === STATE）。CELEBRATION && p.type === 'bg') {
+                    const angle = p.angle + time * 0.1 + p.orbitSpeed;恒定角= p角时间* 0.1 p轨道速度；
+                    const r = p.radius + Math.sin(time + i) * 5;const r = p.radius数学。Sin (time i) * 5；
+                    target.x = Math.cos(angle) * r;目标。x =数学。Cos（角度）* r；
+                    target.z = Math.sin(angle) * r;目标。z =数学。Sin（角度）* r；
+                    target.y = p.baseTarget.y + Math.sin(time + p.noiseOffset) * 2;目标。y = p. basettarget .ysin(time p.noiseOffset) * 2；
+                    const hue = 0.9 + (Math.sin(time + i * 0.01) * 0.05); const hue = 0.9Sin（时间I * 0.01） * 0.05)；
+                    p.targetColor.setHSL(hue, 0.8, 0.6);p.targetColor。setHSL（色调，0.8,0.6）；
                 } 
-                else if (currentState === STATE.IDLE) {
-                    const angle = p.angle + time * 0.1;
-                    const r = p.radius + Math.sin(time + i * 0.01)*2;
-                    target.x = Math.cos(angle) * r;
-                    target.z = Math.sin(angle) * r;
-                    target.y = p.baseTarget.y + Math.sin(time + target.x * 0.05) * 5; 
+                else if (currentState === STATE.IDLE) {否则if （currentState   (现状后 === STATE）。闲置){
+                    const angle = p.angle + time * 0.1;Const角= p角时间* 0.1；
+                    const r = p.radius + Math.sin(time + i * 0.01)*2;const r = p.radius数学。Sin（时间I * 0.01）*2；
+                    target.x = Math.cos(angle) * r;目标。x =数学。Cos（角度）* r；
+                    target.z = Math.sin(angle) * r;目标。z =数学。Sin（角度）* r；
+                    target.y = p.baseTarget.y + Math.sin(time + target.x * 0.05) * 5; 目标。y = p. basettarget .y罪(时间目标。X * 0.05) * 5；
                     p.targetColor.set(0x333333); 
                 }
 
-                if (p.type === 'flame') {
-                    const noise = Math.sin(time * 6 + p.noiseOffset) * 0.6;
-                    target.x += noise;
-                    if (blowInfluence > 0.1 || currentState === STATE.CELEBRATION) {
-                        let lift = blowInfluence * 25;
-                        if(currentState === STATE.CELEBRATION) lift = 60;
-                        target.y += lift;
-                        target.x += (Math.random()-0.5) * lift * 0.8;
-                        p.targetColor.lerp(new THREE.Color(0xdddddd), 0.1); 
+                if   如果 (p.type   类型 === 'flame'   “火焰”) {
+                    const   常量 noise = Math   数学.sin   罪(time   时间 * 6 + p.noiseOffset) * 0.6;const noise = Math。sin(time * 6p . noiseoffset) * 0.6；
+                    target   目标.x += noise;   目标。X =噪声；
+                    if   如果 (blowInfluence > 0.1 || currentState   现状后 === STATE   状态.CELEBRATION   庆祝活动) {
+                        let   让   电梯 lift = blowInfluence * 25;let lift = blowInfluence * 25；
+                        if   如果(currentState   现状后 === STATE   状态.CELEBRATION   庆祝活动) lift   电梯 = 60;if（currentState === STATE.）CELEBRATION)升力= 60；
+                        target   目标.y += lift   电梯;   目标。Y =升力；
+                        target   目标.x += (Math   数学.random   随机()-0.5) * lift   电梯 * 0.8;目标。x = (Math.random()-0.5) * lift * 0.8；
+                        p.targetColor.lerp(new   新    三个THREE.Color   颜色(0xdddddd), 0.1); 
                     }
                 }
 
-                p.current.lerp(target, 0.08);
+                p.current   当前的.lerp(target   目标, 0.08);p.current。昆虫蜜(目标,0.08);
 
-                positions[i*3] = p.current.x;
-                positions[i*3+1] = p.current.y;
-                positions[i*3+2] = p.current.z;
+                positions   职位[i   我*3] = p.current   当前的.x;位置[i*3] = p.current.x；
+                positions   职位[i   我*3+1] = p.current   当前的.y;position [i*3 1] = p.current.y；
+                positions   职位[i   我*3+2] = p.current   当前的.z;position [i*3 2] = p.current.z；
                 
-                colors[i*3] += (p.targetColor.r - colors[i*3]) * 0.1;
-                colors[i*3+1] += (p.targetColor.g - colors[i*3+1]) * 0.1;
-                colors[i*3+2] += (p.targetColor.b - colors[i*3+2]) * 0.1;
+                colors   颜色[i   我*3] += (p.targetColor.r - colors   颜色[i   我*3]) * 0.1;颜色[i*3] = (p.目标颜色)。r -颜色[i*3]] * 0.1;
+                colors   颜色[i   我*3+1] += (p.targetColor.g - colors   颜色[i   我*3+1]) * 0.1;颜色[i*3 1] = (p.targetColor。g -颜色[i*3 1]) * 0.1；
+                colors   颜色[i   我*3+2] += (p.targetColor.b - colors   颜色[i   我*3+2]) * 0.1;颜色[i*3 2] = (p.targetColor。b -颜色[i*3 2]) * 0.1；
 
-                if (p.type === 'flame' && (blowInfluence > 0.1 || currentState === STATE.CELEBRATION)) {
-                    sizes[i] = Math.max(0, 1.5 * (1 - blowInfluence)); 
-                    if(currentState === STATE.CELEBRATION) sizes[i] *= 0.9;
-                } else {
-                    sizes[i] = 1.2 + Math.sin(time + i) * 0.3;
+                if   如果 (p.type   类型 === 'flame'   “火焰” && (blowInfluence > 0.1 || currentState   现状后 === STATE   状态.CELEBRATION   庆祝活动)) {
+                    sizes   大小[i   我] = Math   数学.max   马克斯(0, 1.5 * (1 - blowInfluence)); 大小[i] =数学。最大（0,1.5 * (1 - blowInfluence)）；
+                    if   如果(currentState   现状后 === STATE   状态.CELEBRATION   庆祝活动) sizes   大小[i   我] *= 0.9;if（currentState === STATE.）CELEBRATION) size [i] *= 0.9；
+                } else   其他 {
+                    sizes   大小[i   我] = 1.2 + Math   数学.sin   罪(time   时间 + i   我) * 0.3;size [i] = 1.2Sin (time i) * 0.3；
                 }
-            }
+                                                      }
 
-            particleSystem.geometry.attributes.position.needsUpdate = true;
-            particleSystem.geometry.attributes.color.needsUpdate = true;
-            particleSystem.geometry.attributes.size.needsUpdate = true;
+            particleSystem.geometry   几何.attributes   属性.position   位置.needsUpdate = true   真正的;particlessystem .geometry. properties .position. needsupdate = true；
+            particlessystem .geometry.attributes.color. needsupdate = true；particleSystem.geometry   几何.attributes   属性.color   颜色.needsUpdate = true   真正的;
+            particlessystem .geometry.attributes.size. needsupdate = true；particleSystem.geometry   几何.attributes   属性.size   大小.needsUpdate = true   真正的;
             
-            if (interactionMode === 1) {
-                if (!isDragging) {
-                    rotationVelocity *= 0.96; 
-                    particleSystem.rotation.y += rotationVelocity + autoRotateSpeed;
+            if   如果 (interactionMode === 1) {
+                   如果(!isDragging) {if   如果 (!isDragging) {
+                    rotationVelocity *= 0.96；rotationVelocity *= 0.96; 
+                    particlessystem . rotate .y = rotationVelocity；particleSystem.rotation   旋转.y += rotationVelocity + autoRotateSpeed;
                 }
-            } else if (currentState !== STATE.IDLE && currentState !== STATE.INTRO) {
-                particleSystem.rotation.y = Math.sin(time * 0.15) * 0.15;
-            } else {
-                particleSystem.rotation.y = 0;
+            } else if (currentState ！= =状态。空闲&&当前状态！= =状态。介绍){} else   其他 if   如果 (currentState   现状后 !== STATE   状态.IDLE   闲置 && currentState   现状后 !== STATE   状态.INTRO) {
+                particlessystem .rotation.y =数学。Sin（时间* 0.15）* 0.15；particleSystem.rotation.y = Math.sin(time * 0.15) * 0.15;
+            } else   其他 {
+                particlessystem . rotate .y = 0；particleSystem.rotation   旋转.y = 0;
             }
-        }
+                                       }
 
         /* --- 业务逻辑 --- */
-        let transitionLock = false;
+        let   让 transitionLock = false；let transitionLock = false   假;
 
-        function startSequence() {
-            if (currentState !== STATE.IDLE || transitionLock) return;
+        函数startSequence() {function   函数 startSequence() {
+            if   如果 （currentState !）= =状态。|| transitionLock)返回；if (currentState   现状后 !== STATE   状态.IDLE   闲置 || transitionLock) return   返回;
                         
             // 清除自动倒数计时器
-            if (autoEntryTimer) {
+            if   如果 (autoEntryTimer) {
                 clearInterval(autoEntryTimer);
-                autoEntryTimer = null;
+                   autoEntryTimer = null；autoEntryTimer = null   零;
             }
-            ui.autoCountdownText.classList.add('hidden');
+            ui   洋葱.autoCountdownText.classList.add(隐含);ui.autoCountdownText.classList   班级名册.add   添加('hidden'   “隐藏”);
 
-            log('检测到手势，开始倒计时序列');
-            transitionLock = true;
-            currentState = STATE.COUNTDOWN;
-            ui.statusText.innerText = "GESTURE DETECTED";
-            ui.statusText.className = "text-xs md:text-sm text-green-400 font-bold tracking-wider";
-            ui.statusDot.className = "inline-block w-2 h-2 rounded-full bg-green-500 mr-2 shadow-[0_0_8px_#0f0]";
-            ui.handIcon.style.display = 'none';
-            let count = 3;
-            ui.mainText.innerText = "";
-            ui.subText.innerText = "";
+            log   日志('检测到手势，开始倒计时序列');
+               transitionLock = true；transitionLock = true   真正的;
+            currentState   现状后 = STATE.COUNTDOWN；currentState = STATE   状态.COUNTDOWN   倒计时;
+            ui   洋葱.statusText.innerText = “检测到手势”；ui.statusText.innerText = "GESTURE DETECTED"   “手势检测”;
+            ui   洋葱.statusText.className = "text-xs md:text-sm - text-green-400 font-bold track - width "；ui.statusText.className   类名称 = "text-xs md:text-sm text-green-400 font-bold tracking-wider"“ font- family：宋体，font- family：宋体”;
+            ui   洋葱.statusDot.className = "inline-block w- 2h - 2full - bg-green- 500mr - 2shadow -[0_0_8px_#0f0]"；ui.statusDot.className   类名称 = "inline-block w-2 h-2 rounded-full bg-green-500 mr-2 shadow-[0_0_8px_#0f0]"“inline-block w-2 h-2圆-full - bg-green-500 mr-2 shadow-[0_0_8px_#0f0]”;
+            ui   洋葱.handIcon.style.display = 'none'；ui.handIcon.style   风格.display   显示 = 'none'   “没有”;
+               设count = 3；let count = 3;
+            ui   洋葱.mainText.innerText = "";
+            ui   洋葱.subText   潜台词.innerText = "";
             transitionTo('3');
-            const timer = setInterval(() => {
-                count--;
-                if (count > 0) {
-                    transitionTo(count.toString());
-                } else {
-                    clearInterval(timer);
+            const   常量   计时器 timer = setInterval(() => {
+                   数,count   数--;
+                如果（count > 0） {if   如果 (count   数 > 0) {
+                    transitionTo(count   数.toString());
+                } else   其他 {
+                       clearInterval(计时器);clearInterval(timer   计时器);
                     showCake();
                 }
             }, 1200);
         }
 
-        function showCake() {
-            log('展示蛋糕，开启吹气检测');
-            currentState = STATE.BLOWING;
-            transitionTo('cake');
-            ui.settingsPanel.style.display = 'flex';
-            ui.mainText.innerText = "";
-            ui.subText.innerText = "";
-            ui.topBanner.classList.remove('hidden'); 
-            ui.statusText.innerText = "MIC LISTENING...";
+           函数showCake() {function   函数 showCake() {
+            log   日志('展示蛋糕，开启吹气检测');
+            currentState   现状后 = STATE   状态.BLOWING   吹;
+               transitionTo(“蛋糕”);transitionTo('cake'   “蛋糕”);
+            ui   洋葱. settingspan .style.display = 'flex'；ui.settingsPanel.style   风格.display   显示 = 'flex'   “弯曲”;
+            ui   洋葱.mainText.innerText = "";
+            ui   洋葱.subText   潜台词.innerText = "";
+            ui   洋葱.topBanner.classList.remove(隐含);ui.topBanner.classList   班级名册.remove   删除('hidden'   “隐藏”); 
+            ui. statusttext . innertext = “MIC LISTENING…”；ui.statusText.innerText = "MIC LISTENING...";
             ui.blowMeter.style.opacity = '1';
-            ui.blowHint.style.opacity = '1';
+            ui   洋葱.blowHint.style   风格.opacity   不透明度 = '1';
         }
 
-        function successCelebration() {
-            log('许愿成功！播放庆祝动画');
-            currentState = STATE.CELEBRATION;
-            ui.statusText.innerText = "WISH GRANTED";
-            ui.blowMeter.style.opacity = '0';
-            ui.blowHint.style.opacity = '0';
-            ui.settingsPanel.style.display = 'none';
+        函数successCelebration() {function   函数 successCelebration() {
+            log   日志('许愿成功！播放庆祝动画');
+            currentState   现状后 = STATE   状态.CELEBRATION；currentState = STATE   状态.CELEBRATION   庆祝活动;
+            ui   洋葱.statusText.innerText = “许愿”；ui.statusText.innerText = "WISH GRANTED"   “希望授予”;
+            ui   洋葱.blowMeter.style   风格.opacity   不透明度 = '0';
+            ui   洋葱.blowHint.style   风格.opacity   不透明度 = '0';
+            ui   洋葱. settingspan .style   风格.display   显示 = 'none'   “没有”；ui   iu;.settingsPanel.style   风格.display   显示 = 'none'   “没有”;
             
-            document.body.classList.add('shake-screen');
-            setTimeout(() => document.body.classList.remove('shake-screen'), 500);
+            document   文档.body   身体.classList   班级名册.add   添加(“shake   “摇-screen”   屏幕”);document   文档.body   身体.classList   班级名册.add   添加('shake-screen'   “shake-screen”   屏幕”);
+            setTimeout(()) => document   文档.body   身体.classList。删除(“shake   “摇-screen”   屏幕”),500);setTimeout(() => document   文档.body   身体.classList   班级名册.remove   删除('shake-screen'   “shake-screen”   屏幕”), 500);
 
-            particlesData.forEach(p => {
-                if (p.type === 'cake' || p.type === 'candle' || p.type === 'ring') {
-                    p.target.y += Math.sin(p.current.x * 0.5) * 0.5; 
-                } else if (p.type !== 'flame') {
-                    p.type = 'bg'; 
+            particlesData。forEach(p => {particlesData.forEach(p => {
+                if   如果 (p.type   类型 === 'cake'   “蛋糕” || p.type   类型 === 'candle'   “蜡烛” || p.type   类型 === 'ring'   “环”) {如果(p.type   类型 = = = '蛋糕' | | p.type   类型 = = =“蜡烛”| | p.type   类型 = = = '环'){
+                    p.target   目标.y = Math   数学.sin（p   罪(p.current   当前的.）X   ) X * 0.5) * 0.5；p.target   目标.y += Math   数学.sin   罪(p.current   当前的.x * 0.5) * 0.5; 
+                } else   其他 if   如果 （p   (p.type   类型 !）== ‘火焰’){} else   其他 if   如果 (p.type   类型 !== 'flame'   “火焰”) {
+                       P.type   类型 = 'bg'   “bg”；p.type   类型 = 'bg'   “bg”; 
                 }
             });
 
-            setTimeout(() => {
-                ui.surpriseLayer.classList.remove('hidden');
-                ui.surpriseLayer.classList.add('active');
-                ui.revealBtn.classList.remove('hidden');
+               7月()=> (setTimeout(() => {
+                ui   洋葱.surpriseLayer.classList   班级名册.remove   删除(隐含);ui   洋葱.surpriseLayer.classList   班级名册.remove   删除('hidden'   “隐藏”);
+                ui   洋葱.surpriseLayer.classList   班级名册.add   添加(“活跃的”);ui   洋葱.surpriseLayer.classList   班级名册.add   添加('active'   “活跃”);
+                ui   洋葱.revealBtn.classList   班级名册.remove   删除(隐含);ui   洋葱.revealBtn.classList   班级名册.remove   删除('hidden'   “隐藏”);
             }, 1500);
         }
 
-        document.getElementById('picker-bottom').addEventListener('input', (e) => CAKE_THEME.bottom = e.target.value);
-        document.getElementById('picker-top').addEventListener('input', (e) => CAKE_THEME.top = e.target.value);
-        document.getElementById('picker-cream').addEventListener('input', (e) => CAKE_THEME.cream = e.target.value);
+        . getelementbyid(“picker   “选择器-bottom”   底”)。addEventListener('input'   “输入”, (e) => CAKE_THEME。Bottom   CAKE_THEME。底 = e.p agtarget .value   价值)；document   文档.getElementById('picker-bottom'   “picker-bottom”   底”).addEventListener('input'   “输入”, (e) => CAKE_THEME.bottom   底 = e.target   目标.value   价值);
+        . getelementbyid(“picker   “选择器-top”   ”)。addEventListener('input'   “输入”, (e) => CAKE_THEME。Top   CAKE_THEME。前 = e.p agtarget .value   价值)；document   文档.getElementById('picker-top'   “picker-top”   ”).addEventListener('input'   “输入”, (e) => CAKE_THEME.top   前 = e.target   目标.value   价值);
+        . getelementbyid(“picker   “选择器-cream”   霜”)。addEventListener('input'   “输入”, (e) => CAKE_THEME。奶油= e.p agtarget .value   价值)；document   文档.getElementById('picker-cream'   “picker-cream”   霜”).addEventListener('input'   “输入”, (e) => CAKE_THEME.cream   奶油 = e.target   目标.value   价值);
         
-        ui.settingsToggle.addEventListener('click', (e) => {
+        ui   洋葱.settingsToggle。addEventListener('click'   “点击”, (e) => {ui   洋葱.settingsToggle.addEventListener('click'   “点击”, (e) => {
             e.stopPropagation();
-            const display = ui.settingsPanel.style.display;
-            ui.settingsPanel.style.display = (display === 'none' || display === '') ? 'flex' : 'none';
+            const   常量   显示 display   显示 = ui   洋葱. settingspan .style   风格.display；const display   显示 = ui   洋葱.settingsPanel.style   风格.display   显示;
+            ui   洋葱.settingsPanel.style   风格.display   显示 = (display   显示 === 'none'   “没有” || display   显示 === ") ？‘flex’： ‘none’；ui.settingsPanel.style.display = (display === 'none' || display === '') ? 'flex' : 'none';   “没有”
         });
 
         // 第一页祝福语
-        const wishes_part1 = [
-            "生日快乐！",
-            "",
-            "愿你的生命如这秋天的森林，",
-            "不必追逐繁盛，",
-            "只需一片落叶的从容。",
-            "每一次飘零都不是终结，",
-            "而是为了沉淀下来年更丰盈的色彩。",
-            "愿你的新岁，温润而金黄。",
-            "           —— 送给最特别的你 "
+        const   常量 wishes_part1 = [
+            "老婆生日快乐！",
+            "嗯…",
+            "这是狗狗认识老婆以来，",
+            "狗狗陪老婆度过的第一个生日，",
+            "狗狗没想到会这么幸运。",
+            "可以有机会和老婆一起度过这么重要的时刻，",
+            "狗狗希望老婆开开心心，健健康康。",
+            "以后也要一起过每一个生日。",
+            "我爱你老婆！"。
+            "           —— 送给老婆"
         ];
 
         // 第二页歉意与快递
-        const wishes_part2 = [
-            "Sorry，有点惭愧",
-            "因为我没拿捏准时间，还有商家发货时间晚的问题，所以今天Surprise可能来不及送到你手上。😭",
-            "真的很抱歉",
-            "",
-            "",
-            "快递编号：",
-            "你可以用这个编号去顺丰官网查一下。",
-            "希望你喜欢这个小小的Surprise！🎉🎂🎈",
-            "记得开箱给我录个视频或者拍个照哦！📸😊",
-            "因为我也还没看过呢！😆"
+        const   常量 wishes_part2 = [
+            "老婆",
+            "狗狗知道自己有些方面做的不够好。😭",
+            "老婆真的特别包容狗狗",
+            "狗狗愿意为老婆献出一切",
+            "狗狗在接下去的日子里会更加更加乖",
+            "狗狗想做老婆最乖最乖的狗狗",
+            "也想是唯一的那个。",
+            "狗狗不能和老婆见面，所以",
+            "所以只能用这种方式📸😊",
+            "狗狗真心的祝老婆生日快乐！😆"
         ];
 
-        function typeWriter(textArray, containerId, speed = 50) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = "";
-            let lineIndex = 0;
-            let charIndex = 0;
+        function   函数   打字机 typeWriter   打字机(textArray, containerId, speed   速度 = 50) {
+            const   常量   容器 container   容器 = document   文档.getElementById(containerId)；const container   容器 = document   文档.getElementById(containerId);
+            container   容器.innerHTML = "";
+               let   让 lineIndex = 0；let    ,让lineIndex = 0;
+               let   让 charIndex = 0；let    ,让charIndex = 0;
 
-            function type() {
-                if (lineIndex < textArray.length) {
-                    const currentLine = textArray[lineIndex];
-                    if (charIndex < currentLine.length) {
-                        container.innerHTML += currentLine.charAt(charIndex);
-                        charIndex++;
-                        setTimeout(type, speed);
-                    } else {
-                        container.innerHTML += "<br>";
-                        lineIndex++;
+               函数类型（）{function   函数   类型 type   类型() {
+                如果(lineIndex < textArray。length)——if (lineIndex < textArray.length   长度) {
+                    const   常量 currentLine = textArray[lineIndex]；const currentLine = textArray[lineIndex];
+                    if   如果 （charIndex < currentLine. if）长度){if   如果 (charIndex < currentLine.length   长度) {
+                        容器。innerHTML = currentLine.charAt(charIndex)container   容器.innerHTML += currentLine.charAt(charIndex);
+                           charIndex;charIndex++;
+                           setTimeout(类型、速度);setTimeout(type   类型, speed   速度);
+                    } else   其他 {
+                        容器。innerHTML = "
+"；container.innerHTML += "<br>";
+                           lineIndex;lineIndex++;
                         charIndex = 0;
-                        setTimeout(type, 300);
+                           setTimeout(类型,300);setTimeout(type   类型, 300);
                     }
                     // 自动滚动到底部
-                    container.scrollTop = container.scrollHeight;
+                    container   容器.scrollTop = container   容器.scrollHeight;
                 }
             }
-            type();
+               类型();type   类型();
         }
 
         ui.revealBtn.addEventListener('click', (e) => {
