@@ -1,39 +1,39 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<!DOCTYPE html>   ＜!DOCTYPE html >
+<html lang="zh-CN">   < html   超文本标记语言 lang   朗 = "应用" >
+<head>   < >负责人
     <link rel="icon" type="image/png" href="../src/icon.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Happy Birthday</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Happy Birthday</title><标题> < /标题>生日快乐
+    <!-- Tailwind CSS -->   ＜!——顺风CSS——>
+    <script src="https://cdn.tailwindcss.com"></script>< script   脚本 src = " https://cdn.tailwindcss.com " > < /脚本>
     <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Google Fonts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>< script   脚本 src = " https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js " > < /脚本>
+    <!-- Google    ＜!字体——>Fonts   字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- MediaPipe Hands -->
+    <!-- MediaPipe    ＜!——mediappe Hands——   手——>Hands   手 -->
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6.1629159505/control_utils.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="anonymous"></script>
 
-    <style>
-        :root { --bg-gradient: radial-gradient(circle at center, #1a0b1a 0%, #000000 100%); }
-        body { 
-            margin: 0; overflow: hidden; 
-            background-color: #000000; background-image: var(--bg-gradient); 
-            font-family: 'Noto Serif SC', serif; color: white; 
-            user-select: none; -webkit-tap-highlight-color: transparent;
-            touch-action: none;
+    <style>   < >风格
+        :root { --bg-gradient: radial-gradient(circle at center, #1a0b1a 0%, #000000 100%); }：root   :根{——bg-gradient：径向梯度（圆心，#1a0b1a 0%, #000000 100%）；}
+        body {    身体{
+            margin: 0; overflow: hidden; 保证金:0;溢出:隐藏;
+            background-color: #000000; background-image: var(--bg-gradient); background   背景 - color   颜色: # 000000;背景图片:var(——bg-gradient);
+            font-family: 'Noto Serif SC', serif; color: white; font-family   字体类型: ‘无衬线’，Serif；颜色:白色;
+            user-select: none; -webkit-tap-highlight-color: transparent;用户选择:没有;-webkit-tap-highlight-color:透明;
+            touch-action: none;   touch-action:没有;
         }
-        #canvas-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; cursor: grab; }
-        #canvas-container:active { cursor: grabbing; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; cursor: grab; }#canvas-container   画布容器 {position   位置: absolute；上图:0;左:0;宽度:100大众;身高:100 vh;z - index   指数: 1;光标:抓住;}
+        #canvas-container:active { cursor: grabbing; }#canvas-container   画布容器:active   活跃的{游标：抓取；}
         
         /* 翻转卡片 */
-        .flip-card { background-color: transparent; perspective: 1000px; }
-        .flip-card-inner {
-            position: relative; width: 100%; height: 100%; text-align: center;
+        .flip-card { background-color: transparent; perspective: 1000px; }．Flip-card   ．活页片{背景颜色：透明；角度:1000 px;}
+        .flip-card-inner {   ．flip-card-inner   .flip-card-inner {
+            position: relative; width: 100%; height: 100%; text-align: center;位置:相对;宽度:100%;高度:100%;text-align:中心;
             transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-style: preserve-3d;
         }
